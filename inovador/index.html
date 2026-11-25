@@ -77,10 +77,9 @@ section{position:relative;padding-block:clamp(5rem,12vw,9rem)}
 .hero .hint span::after{content:"";position:absolute;left:50%;top:5px;width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:var(--fg);animation:wheel 1.6s infinite}
 @keyframes wheel{0%{transform:translateY(0);opacity:1}70%{transform:translateY(8px);opacity:0}100%{opacity:0}}
 /* O ano gigante, com a fotografia do salão dentro das letras */
-.year-photo{font-family:var(--serif);font-size:min(31vw,36svh);line-height:.8;letter-spacing:-.04em;margin-top:clamp(1.5rem,3vw,2.5rem);
-  background:url(fotos/espaco-salao.jpg) center 40%/cover;-webkit-background-clip:text;background-clip:text;color:transparent;
-  -webkit-text-stroke:1px rgba(255,255,255,.12);user-select:none;white-space:nowrap}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.year-photo{color:var(--fg)}}
+.year-photo{font-family:var(--serif);font-size:min(31vw,36svh);line-height:.8;letter-spacing:-.03em;margin-top:clamp(1.5rem,3vw,2.5rem);user-select:none;white-space:nowrap;
+  color:transparent;-webkit-text-stroke:1.5px rgba(244,241,236,.38)}
+.year-photo em{font-style:italic;color:var(--red-soft);-webkit-text-stroke:0}
 
 /* Faixa de serviços a correr */
 .marquee{border-block:1px solid var(--line);overflow:hidden;padding-block:1.1rem;padding-inline:0}
@@ -133,21 +132,34 @@ section{position:relative;padding-block:clamp(5rem,12vw,9rem)}
 .swipe-hint{font-size:.85rem;color:var(--dim)}
 
 /* O ESPAÇO: visita guiada com pontos */
-.tour{position:relative;margin-top:clamp(2rem,5vw,3rem);border-radius:22px;overflow:hidden}
-.tour > img{width:100%;aspect-ratio:16/8;object-fit:cover}
-@media (max-width:640px){.tour > img{aspect-ratio:4/3}}
-.spot{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:0;background:rgba(255,255,255,.95);color:#111;cursor:pointer;display:grid;place-items:center;font-size:1.3rem;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .25s var(--ease),background .2s,color .2s}
+.tour{position:relative;margin-top:clamp(2rem,5vw,3rem);border-radius:22px;overflow:hidden;aspect-ratio:16/8;background:#000;isolation:isolate}
+@media (max-width:640px){.tour{aspect-ratio:4/3}.tour-hint{display:none}}
+.tour .stage{position:absolute;inset:0}
+.tour .layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease),opacity .6s .25s}
+.tour .base{transform-origin:var(--ox,50%) var(--oy,50%)}
+.tour.zoomed .base{transform:scale(1.9)}
+.tour .detail{opacity:0}
+.tour .detail.on{opacity:1}
+.tour::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 28%,transparent 55%,rgba(0,0,0,.72));opacity:.6;transition:opacity .5s}
+.tour.zoomed::after{opacity:1}
+.spot{position:absolute;z-index:2;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;border:0;background:rgba(255,255,255,.95);color:#111;cursor:pointer;display:grid;place-items:center;font-size:1.3rem;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .25s var(--ease),background .2s,color .2s,opacity .3s}
 .spot::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(255,255,255,.7);animation:ping 2.2s infinite}
 @keyframes ping{0%{transform:scale(.8);opacity:1}100%{transform:scale(1.6);opacity:0}}
-.spot:hover,.spot[aria-expanded="true"]{background:var(--red);color:#fff;transform:scale(1.08)}
-.tour-info{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:1.5rem;align-items:center;margin-top:1.4rem;min-height:9rem}
-@media (max-width:700px){.tour-info{grid-template-columns:1fr}}
-.tour-info img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px}
-.tour-info h3{font-family:var(--serif);font-size:clamp(1.8rem,1.4rem + 1.4vw,2.6rem)}
-.tour-info p{color:var(--muted);margin-top:.5rem}
-.tour-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
-.tour-tabs button{min-height:40px;padding:.4rem .95rem;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:.88rem;font-weight:600}
-.tour-tabs button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.spot:hover{background:var(--red);color:#fff;transform:scale(1.08)}
+.spot .lbl{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);white-space:nowrap;padding:.3rem .7rem;border-radius:999px;background:rgba(11,11,11,.75);backdrop-filter:blur(6px);color:var(--fg);font-size:.82rem;font-weight:600;pointer-events:none}
+.spot.left .lbl{left:auto;right:calc(100% + 10px)}
+.tour-other{position:absolute;z-index:2;top:14px;right:14px;min-height:44px;padding:.5rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(11,11,11,.6);backdrop-filter:blur(8px);color:var(--fg);font-weight:600;font-size:.88rem;cursor:pointer;transition:background .2s,opacity .3s}
+.tour-other:hover{background:var(--red);border-color:var(--red)}
+.tour-hint{position:absolute;z-index:2;top:14px;left:14px;padding:.45rem .9rem;border-radius:999px;background:rgba(11,11,11,.6);backdrop-filter:blur(8px);font-size:.85rem;color:var(--fg);transition:opacity .3s}
+.tour.zoomed .spot,.tour.zoomed .tour-other,.tour.zoomed .tour-hint{opacity:0;pointer-events:none}
+.tour-card{position:absolute;z-index:3;left:clamp(12px,2.5vw,28px);bottom:clamp(12px,2.5vw,28px);right:clamp(12px,2.5vw,28px);max-width:30rem;padding:1.2rem 1.3rem;border-radius:16px;background:rgba(11,11,11,.78);backdrop-filter:blur(12px);border:1px solid var(--line);opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .4s .35s,transform .5s .35s var(--ease)}
+.tour.zoomed .tour-card{opacity:1;transform:none;pointer-events:auto}
+.tour-card h3{font-family:var(--serif);font-size:clamp(1.6rem,1.3rem + 1vw,2.2rem)}
+.tour-card p{color:var(--muted);margin-top:.35rem;font-size:.97rem}
+.tour-card button{margin-top:.9rem;min-height:44px;padding:.5rem 1rem;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-weight:600;font-size:.9rem}
+.tour-card button:hover{border-color:var(--fg)}
+@media (max-width:640px){.spot .lbl{display:none}.spot{left:var(--xm)!important}}
+@media (max-width:640px){.tour{aspect-ratio:auto;height:auto;overflow:visible;background:none;border-radius:0}.tour .stage{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden}.tour-card{position:relative;left:auto;right:auto;bottom:auto;max-width:none;margin-top:.8rem;display:none;opacity:1;transform:none;transition:none}.tour.zoomed .tour-card{display:block}.tour::after{display:none}}
 
 /* HISTÓRIA: arrastar pelo tempo */
 .history{background:var(--bg) url(damasco.jpg) center/auto 180px repeat;isolation:isolate}
@@ -285,7 +297,7 @@ footer.site a:hover{color:var(--fg)}
         </div>
         <p class="hint"><span aria-hidden="true"></span>Desça para conhecer</p>
       </div>
-      <div class="year-photo" aria-hidden="true">1977</div>
+      <div class="year-photo" aria-hidden="true">19<em>77</em></div>
     </div>
   </section>
 
@@ -354,19 +366,20 @@ footer.site a:hover{color:var(--fg)}
         <p class="kicker">O espaço</p>
         <h2 style="margin-top:1rem">Entre e <em>dê uma volta.</em></h2>
       </div>
-      <div class="tour rise">
-        <img src="fotos/espaco-salao.jpg" alt="O salão por dentro: postos de corte, cadeiras vermelhas e brancas e grandes janelas" loading="lazy">
-        <button class="spot" style="left:28%;top:58%" data-i="0" aria-expanded="true" aria-label="Postos de corte">+</button>
-        <button class="spot" style="left:80%;top:62%" data-i="1" aria-expanded="false" aria-label="Sala de espera">+</button>
-      </div>
-      <div class="tour-tabs" role="group" aria-label="Escolher zona do salão">
-        <button aria-pressed="true" data-i="0">Postos de corte</button>
-        <button aria-pressed="false" data-i="1">Sala de espera</button>
-        <button aria-pressed="false" data-i="2">Lavagem e receção</button>
-      </div>
-      <div class="tour-info" aria-live="polite">
-        <img id="tour-img" src="fotos/espaco-cadeiras.jpg" alt="Postos de corte" loading="lazy">
-        <div><h3 id="tour-title">Postos de corte</h3><p id="tour-text">Espelhos amplos e as cadeiras vermelhas e brancas que já são imagem do salão.</p></div>
+      <div class="tour rise" id="tour">
+        <div class="stage">
+        <img class="layer base" src="fotos/espaco-salao.jpg" alt="O salão por dentro: postos de corte, cadeiras vermelhas e brancas e grandes janelas" loading="lazy">
+        <img class="layer detail" data-z="0" src="fotos/espaco-cadeiras.jpg" alt="" loading="lazy">
+        <img class="layer detail" data-z="2" src="fotos/espaco-lavagem.jpg" alt="" loading="lazy">
+        <span class="tour-hint" aria-hidden="true">Toque num ponto para entrar</span>
+        <button class="spot" style="left:28%;top:58%;--xm:26%" data-z="0" aria-label="Ver os postos de corte">+<span class="lbl" aria-hidden="true">Postos de corte</span></button>
+        <button class="spot left" style="left:76%;top:60%;--xm:86%" data-z="1" aria-label="Ver a sala de espera">+<span class="lbl" aria-hidden="true">Sala de espera</span></button>
+        <button class="tour-other" data-z="2">↻ Do outro lado: lavagem</button>
+        </div>
+        <div class="tour-card" aria-live="polite">
+          <h3 id="tour-title"></h3><p id="tour-text"></p>
+          <button type="button" id="tour-back">← Voltar ao salão</button>
+        </div>
       </div>
     </div>
   </section>
@@ -569,19 +582,23 @@ footer.site a:hover{color:var(--fg)}
 
   // ---------- Visita guiada ----------
   var Z=[
-    {t:'Postos de corte',p:'Espelhos amplos e as cadeiras vermelhas e brancas que já são imagem do salão.',i:'fotos/espaco-cadeiras.jpg'},
-    {t:'Sala de espera',p:'Sofás junto às grandes janelas, com muita luz natural.',i:'fotos/espaco-salao.jpg'},
-    {t:'Lavagem e receção',p:'Cadeiras de lavagem confortáveis, o balcão da receção e os produtos que usamos.',i:'fotos/espaco-lavagem.jpg'}
+    {t:'Postos de corte',p:'Espelhos amplos e as cadeiras vermelhas e brancas que já são imagem do salão.',x:'28%',y:'58%'},
+    {t:'Sala de espera',p:'Sofás junto às grandes janelas, com muita luz natural.',x:'82%',y:'60%'},
+    {t:'Lavagem e receção',p:'Do outro lado do salão: cadeiras de lavagem, o balcão da receção e os produtos que usamos.',x:'50%',y:'50%'}
   ];
-  var spots=document.querySelectorAll('.spot'), tabs=document.querySelectorAll('.tour-tabs button');
-  function zone(i){
-    var z=Z[i],im=document.getElementById('tour-img');
-    im.src=z.i;im.alt=z.t;document.getElementById('tour-title').textContent=z.t;document.getElementById('tour-text').textContent=z.p;
-    spots.forEach(function(s){s.setAttribute('aria-expanded',s.getAttribute('data-i')==i)});
-    tabs.forEach(function(s){s.setAttribute('aria-pressed',s.getAttribute('data-i')==i)});
+  var tour=document.getElementById('tour'), base=tour.querySelector('.base'), dets=tour.querySelectorAll('.detail'), back=document.getElementById('tour-back'), opener=null;
+  function enter(i,btn){
+    var z=Z[i];opener=btn;
+    tour.style.setProperty('--ox',z.x);tour.style.setProperty('--oy',z.y);
+    document.getElementById('tour-title').textContent=z.t;document.getElementById('tour-text').textContent=z.p;
+    tour.classList.add('zoomed');
+    dets.forEach(function(d){d.classList.toggle('on',+d.getAttribute('data-z')===i)});
+    setTimeout(function(){back.focus({preventScroll:true})},reduce?0:400);
   }
-  spots.forEach(function(s){s.addEventListener('click',function(){zone(+s.getAttribute('data-i'))})});
-  tabs.forEach(function(s){s.addEventListener('click',function(){zone(+s.getAttribute('data-i'))})});
+  function leave(){tour.classList.remove('zoomed');dets.forEach(function(d){d.classList.remove('on')});if(opener)opener.focus({preventScroll:true})}
+  tour.querySelectorAll('[data-z]').forEach(function(b){if(b.tagName==='BUTTON')b.addEventListener('click',function(){enter(+b.getAttribute('data-z'),b)})});
+  back.addEventListener('click',leave);
+  tour.addEventListener('keydown',function(e){if(e.key==='Escape'&&tour.classList.contains('zoomed'))leave()});
 
   // ---------- História: seletor de tempo ----------
   var E=[
