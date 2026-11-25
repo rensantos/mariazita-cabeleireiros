@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Mariazita Cabeleireiros · Propostas de site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#0B0B0B;--raise:#151515;--fg:#F4F1EC;--muted:#B4AFA8;--dim:#85807A;--line:rgba(255,255,255,.12);--red:#B3232D;--red-soft:#EC7E85;--green:#BFD73B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Manrope",Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+.wrap{max-width:76rem;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+header{position:relative;isolation:isolate;padding-block:clamp(3rem,8vw,6rem) clamp(2.5rem,5vw,4rem);border-bottom:1px solid var(--line)}
+header::before{content:"";position:absolute;inset:0;z-index:-1;background:url(assets/damasco.jpg) center/auto 170px repeat;opacity:.5}
+header::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(11,11,11,.55),var(--bg))}
+.logo{width:min(100%,380px)}
+.kicker{display:inline-flex;align-items:center;gap:.6rem;margin-top:2rem;font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(2.6rem,1.6rem + 4vw,5rem);line-height:1;margin:.8rem 0 0}
+h1 em{color:var(--red-soft)}
+.lede{max-width:38rem;margin-top:1.2rem;color:var(--muted)}
+main{padding-block:clamp(2.5rem,6vw,4.5rem)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:1.4rem}
+.card{display:flex;flex-direction:column;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--raise);transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.35)}
+.card:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.shot{aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line);background:#000}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s}
+.card:hover .shot img{transform:scale(1.03)}
+.body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.top{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.n{font-size:.78rem;color:var(--dim);font-variant-numeric:tabular-nums}
+h2{margin:0;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:1.9rem;line-height:1.05}
+.tag{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;background:var(--red);color:#fff}
+.body p{margin:0;color:var(--muted);font-size:.95rem}
+.go{margin-top:auto;padding-top:.6rem;font-weight:600;font-size:.92rem}
+.go span{display:inline-block;transition:transform .3s}
+.card:hover .go span{transform:translateX(4px)}
+footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--dim);font-size:.85rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <img class="logo" src="assets/logo-branco.svg" alt="Mariazita Cabeleireiros" width="380" height="61">
+    <p class="kicker">Propostas de site · novembro 2026</p>
+    <h1>Escolha a versão <em>que mais gosta.</em></h1>
+    <p class="lede">Seis propostas para o novo site do salão, com o mesmo conteúdo e estilos diferentes. Abra cada uma no telemóvel e no computador. Em todas há um separador "Versões" na margem esquerda para voltar a esta página.</p>
+  </div>
+</header>
+<main class="wrap">
+  <div class="grid">
+    <a class="card" href="inovador/">
+      <div class="shot"><img src="assets/thumb-inovador.jpg" alt="" loading="lazy"></div>
+      <div class="body"><div class="top"><span class="n">06</span><span class="tag">Nova</span></div><h2>Inovadora</h2><p>Luz que revela a lona, estado "Aberto agora" sempre visível, fotos para deslizar, visita guiada ao salão e história com seletor de tempo.</p><span class="go">Abrir <span>→</span></span></div>
+    </a>
+    <a class="card" href="clean/">
+      <div class="shot"><img src="assets/thumb-clean.jpg" alt="" loading="lazy"></div>
+      <div class="body"><div class="top"><span class="n">05</span></div><h2>Simples e clean</h2><p>Fundo branco, uma só letra, muito espaço. Vermelho só no botão de ligar.</p><span class="go">Abrir <span>→</span></span></div>
+    </a>
+    <a class="card" href="moderno/">
+      <div class="shot"><img src="assets/thumb-moderno.jpg" alt="" loading="lazy"></div>
+      <div class="body"><div class="top"><span class="n">04</span></div><h2>Moderna editorial</h2><p>Preto, letras de revista, serviços numerados, carril de fotos e a secção "O espaço".</p><span class="go">Abrir <span>→</span></span></div>
+    </a>
+    <a class="card" href="tricolor/">
+      <div class="shot"><img src="assets/thumb-tricolor.jpg" alt="" loading="lazy"></div>
+      <div class="body"><div class="top"><span class="n">03</span></div><h2>Vermelho, verde e preto</h2><p>Base preta com a lona, botões vermelhos e o verde do logótipo nos detalhes.</p><span class="go">Abrir <span>→</span></span></div>
+    </a>
+    <a class="card" href="vermelho/">
+      <div class="shot"><img src="assets/thumb-vermelho.jpg" alt="" loading="lazy"></div>
+      <div class="body"><div class="top"><span class="n">02</span></div><h2>Branco e vermelho</h2><p>As cores do salão por dentro: corpo branco, abertura e rodapé pretos.</p><span class="go">Abrir <span>→</span></span></div>
+    </a>
+    <a class="card" href="preto/">
+      <div class="shot"><img src="assets/thumb-preto.jpg" alt="" loading="lazy"></div>
+      <div class="body"><div class="top"><span class="n">01</span></div><h2>Preta</h2><p>A primeira proposta, toda em preto com a lona do logótipo.</p><span class="go">Abrir <span>→</span></span></div>
+    </a>
+  </div>
+</main>
+<footer><div class="wrap">Mariazita Cabeleireiros · Louriçal · desde 1977</div></footer>
+</body>
+</html>

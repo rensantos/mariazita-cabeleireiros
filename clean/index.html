@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-PT">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Mariazita Cabeleireiros · Simples</title>
+<meta name="description" content="Mariazita Cabeleireiros, o primeiro cabeleireiro do Louriçal, desde 1977. Marcações: 236 968 224.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap">
+<style>
+/* Versão simples: fundo branco, uma só letra (Manrope), muito espaço, fotos como protagonistas.
+   Vermelho só no botão de ligar. Sem animações nem carris. */
+:root{
+  --bg:#FFFFFF; --soft:#F6F5F3; --fg:#161616; --muted:#5F5F5F; --line:#E7E5E1;
+  --red:#B3232D; --red-hover:#951B24;
+  --wrap:68rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Manrope","Helvetica Neue",Arial,sans-serif;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+h1,h2,h3{font-weight:500;letter-spacing:-.02em;line-height:1.15;margin:0}
+h1{font-size:clamp(2.1rem,1.5rem + 2.8vw,3.6rem);max-width:18ch}
+h2{font-size:clamp(1.6rem,1.3rem + 1.2vw,2.2rem)}
+h3{font-size:1.05rem;font-weight:600;letter-spacing:0}
+p{margin:0}
+.label{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:.75rem 1.4rem;border-radius:999px;font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid var(--fg);transition:background .2s,color .2s,border-color .2s}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.btn.red:hover{background:var(--red-hover);border-color:var(--red-hover)}
+.btn.line:hover{background:var(--fg);color:#fff}
+section{padding-block:clamp(3.5rem,8vw,6.5rem);border-top:1px solid var(--line)}
+
+/* Cabeçalho */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:68px}
+header .logo{height:30px;width:auto}
+header nav{display:flex;align-items:center;gap:1.6rem;font-size:.95rem}
+header nav a{text-decoration:none;color:var(--muted)}
+header nav a:hover{color:var(--fg)}
+header .btn{min-height:40px;padding:.45rem 1.1rem;font-size:.9rem}
+@media (max-width:780px){header nav a:not(.btn){display:none}}
+
+/* Abertura */
+.hero{padding-block:clamp(3rem,7vw,5.5rem) clamp(2.5rem,5vw,4rem);border-top:0}
+.hero p.lede{margin-top:1.3rem;max-width:36rem;color:var(--muted);font-size:clamp(1.05rem,1rem + .3vw,1.2rem)}
+.hero .actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.hero-img{margin-top:clamp(2.5rem,5vw,4rem)}
+.hero-img img{width:100%;aspect-ratio:21/9;object-fit:cover;border-radius:6px}
+@media (max-width:640px){.hero-img img{aspect-ratio:4/3}}
+.facts{display:flex;flex-wrap:wrap;gap:.6rem 2.2rem;margin-top:1.4rem;color:var(--muted);font-size:.95rem}
+.facts b{color:var(--fg);font-weight:600}
+
+/* Duas colunas: título à esquerda, conteúdo à direita */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(1.5rem,5vw,4rem)}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+
+/* Serviços */
+.services{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2.5rem}
+@media (max-width:640px){.services{grid-template-columns:1fr}}
+.services li{padding:1.2rem 0;border-bottom:1px solid var(--line)}
+.services p{color:var(--muted);font-size:.97rem;margin-top:.25rem}
+
+/* Trabalhos */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:2.2rem}
+@media (max-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px}
+.more{margin-top:1.6rem;font-size:.97rem;color:var(--muted)}
+.more a{color:var(--fg);font-weight:600}
+
+/* Espaço */
+.space{background:var(--soft)}
+.space .pics{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:2.2rem}
+.space .pics img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+
+/* História */
+.story p + p{margin-top:1rem}
+.story p{color:var(--muted);max-width:40rem}
+.story p strong{color:var(--fg);font-weight:600}
+
+/* Avaliações */
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;margin-top:2.2rem}
+@media (max-width:820px){.quotes{grid-template-columns:1fr;gap:1.6rem}}
+blockquote{margin:0;padding-top:1.2rem;border-top:2px solid var(--fg)}
+blockquote p{font-size:1.05rem}
+blockquote footer{margin-top:.8rem;font-size:.9rem;color:var(--muted)}
+.stars{color:#C9A43A;letter-spacing:.1em}
+.source{margin-top:1.8rem;font-size:.85rem;color:var(--muted)}
+
+/* Contactos */
+.contact .phone{display:inline-block;font-size:clamp(1.9rem,1.4rem + 2vw,2.8rem);font-weight:500;letter-spacing:-.02em;text-decoration:none;margin-top:.2rem}
+.contact .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem}
+@media (max-width:700px){.contact .cols{grid-template-columns:1fr}}
+.contact address{font-style:normal;color:var(--muted);margin-top:1rem}
+.contact address strong{color:var(--fg);font-weight:600}
+.contact .actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+table{width:100%;border-collapse:collapse;font-size:.98rem}
+td{padding:.6rem 0;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right;color:var(--muted)}
+tr.today td{font-weight:600;color:var(--fg)}
+tr.today td:first-child::after{content:"Hoje";margin-left:.6rem;padding:.1rem .5rem;border-radius:999px;background:var(--red);color:#fff;font-size:.72rem;font-weight:600;vertical-align:2px}
+
+footer.site{border-top:1px solid var(--line);padding-block:2rem;font-size:.88rem;color:var(--muted)}
+footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+footer.site a{text-decoration:none}
+footer.site a:hover{text-decoration:underline}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+</style>
+
+<header>
+  <div class="wrap">
+    <a href="#inicio" aria-label="Mariazita Cabeleireiros, início"><img class="logo" src="logo-preto.svg" alt="Mariazita Cabeleireiros" width="186" height="30"></a>
+    <nav aria-label="Secções">
+      <a href="#servicos">Serviços</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#historia">História</a>
+      <a href="#contactos">Contactos</a>
+      <a class="btn red" href="tel:+351236968224">Ligar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="wrap hero">
+    <p class="label">Louriçal · Desde 1977</p>
+    <h1>O primeiro cabeleireiro do Louriçal.</h1>
+    <p class="lede">Cortes, cor, penteados e barbearia, feitos pela Mariazita e pelo filho João Vítor.</p>
+    <div class="actions">
+      <a class="btn red" href="tel:+351236968224">Ligar 236 968 224</a>
+      <a class="btn line" href="https://www.google.com/maps/place/Mariazita+Cabeleireiros/@40.0063371,-8.735337,17z" target="_blank" rel="noopener">Como chegar</a>
+    </div>
+    <p class="facts"><span><b>4,8 <span class="stars" aria-hidden="true">★</span></b> 110 avaliações no Google</span><span><b class="years" data-since="1977">49</b> anos de experiência</span></p>
+    <div class="hero-img"><img src="fotos/espaco-salao.jpg" alt="Interior do salão com cadeiras vermelhas e brancas e grandes janelas" width="1800" height="900"></div>
+  </div>
+
+  <section id="servicos">
+    <div class="wrap split">
+      <div><p class="label">Serviços</p><h2>O que fazemos</h2></div>
+      <ul class="services">
+        <li><h3>Cortes e barbearia</h3><p>Senhora e homem.</p></li>
+        <li><h3>Coloração e madeixas</h3><p>Cor, madeixas, balayage e face frame.</p></li>
+        <li><h3>Penteados e noivas</h3><p>Apanhados, tranças e penteados de festa.</p></li>
+        <li><h3>Alisamentos e ondulações</h3><p>Liso fácil de tratar, ou movimento e volume.</p></li>
+        <li><h3>Tratamentos capilares</h3><p>Alfaparf Milano, para força e brilho.</p></li>
+        <li><h3>Estética e depilação</h3><p>Em parceria com a Activderm Estética.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="trabalhos">
+    <div class="wrap">
+      <p class="label">Trabalhos</p>
+      <h2>Feitos no salão</h2>
+      <div class="grid">
+        <img src="fotos/balayage-moreno.jpg" alt="Balayage em cabelo moreno" loading="lazy">
+        <img src="fotos/penteado-noiva.jpg" alt="Penteado de noiva" loading="lazy">
+        <img src="fotos/madeixas-loiras.jpg" alt="Madeixas loiras" loading="lazy">
+        <img src="fotos/apanhado.jpg" alt="Apanhado" loading="lazy">
+        <img src="fotos/balayage-face-frame.jpg" alt="Balayage com face frame" loading="lazy">
+        <img src="fotos/trancas.jpg" alt="Penteado com tranças" loading="lazy">
+      </div>
+      <p class="more">Mais trabalhos no Instagram, <a href="https://www.instagram.com/mariazita_cabeleireiros/" target="_blank" rel="noopener">@mariazita_cabeleireiros</a>.</p>
+    </div>
+  </section>
+
+  <section class="space" id="espaco">
+    <div class="wrap">
+      <p class="label">O espaço</p>
+      <h2>Um salão amplo e luminoso</h2>
+      <div class="pics">
+        <img src="fotos/espaco-cadeiras.jpg" alt="Postos de corte com espelhos e cadeiras vermelhas e brancas" loading="lazy">
+        <img src="fotos/espaco-lavagem.jpg" alt="Zona de lavagem e receção" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="wrap split">
+      <div><p class="label">História</p><h2>Desde 1977</h2></div>
+      <div class="story">
+        <p>Em <strong>1977</strong> a Mariazita abriu o primeiro salão de cabeleireiro do Louriçal. Desde então o salão mudou de casa, foi renovado várias vezes e aprendeu novas técnicas, sempre com a mesma ideia: acompanhar a vida, nunca ficar parado.</p>
+        <p>Em <strong>2006</strong> o filho, João Vítor, juntou-se à mãe. Hoje trabalham lado a lado na Urbanização Lourisol.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="avaliacoes">
+    <div class="wrap">
+      <p class="label">Avaliações</p>
+      <h2>4,8 em 110 avaliações</h2>
+      <div class="quotes">
+        <blockquote><p>“Proprietários são de uma simpatia fantástica. Sempre grande profissionalismo! Impossível sair de lá insatisfeito.”</p><footer><span class="stars" aria-label="5 estrelas">★★★★★</span> Sandrine Cabecinhas</footer></blockquote>
+        <blockquote><p>“Excelente atendimento e serviço top! O João Vítor é um ótimo profissional!”</p><footer><span class="stars" aria-label="5 estrelas">★★★★★</span> Mónica Oliveira</footer></blockquote>
+        <blockquote><p>“A D. Mariazita é um doce de pessoa!!”</p><footer><span class="stars" aria-label="5 estrelas">★★★★★</span> Hugo Daniel</footer></blockquote>
+      </div>
+      <p class="source">Avaliações públicas do Google Places.</p>
+    </div>
+  </section>
+
+  <section id="contactos" class="contact">
+    <div class="wrap cols">
+      <div>
+        <p class="label">Marcações</p>
+        <a class="phone" href="tel:+351236968224">236 968 224</a>
+        <p style="color:var(--muted)">Telemóvel <a href="tel:+351916589104">916 589 104</a></p>
+        <address><strong>Urbanização Lourisol, Lote 16, Loja 1</strong><br>3105-165 Louriçal</address>
+        <div class="actions">
+          <a class="btn red" href="tel:+351236968224">Ligar</a>
+          <a class="btn line" href="https://www.google.com/maps/place/Mariazita+Cabeleireiros/@40.0063371,-8.735337,17z" target="_blank" rel="noopener">Como chegar</a>
+        </div>
+      </div>
+      <div>
+        <p class="label">Horário</p>
+        <table>
+          <tbody>
+            <tr data-days="1"><td>Segunda</td><td>Fechado</td></tr>
+            <tr data-days="2"><td>Terça</td><td>9:00–13:00 · 14:30–19:00</td></tr>
+            <tr data-days="3"><td>Quarta</td><td>9:00–13:00 · 14:30–19:00</td></tr>
+            <tr data-days="4"><td>Quinta</td><td>9:00–13:00 · 14:30–19:00</td></tr>
+            <tr data-days="5"><td>Sexta</td><td>9:00–13:00 · 14:30–19:00</td></tr>
+            <tr data-days="6"><td>Sábado</td><td>9:00–13:00 · 14:30–19:00</td></tr>
+            <tr data-days="0"><td>Domingo</td><td>9:00–13:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© <span class="this-year">2026</span> Mariazita Cabeleireiros · Louriçal</span>
+    <span><a href="https://www.instagram.com/mariazita_cabeleireiros/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/mariazitacabeleireiroestetica" target="_blank" rel="noopener">Facebook</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var now=new Date(), y=now.getFullYear(), d=String(now.getDay());
+  document.querySelectorAll('.years[data-since]').forEach(function(el){ el.textContent=String(y-parseInt(el.getAttribute('data-since'),10)); });
+  document.querySelectorAll('.this-year').forEach(function(el){ el.textContent=String(y); });
+  document.querySelectorAll('tr[data-days]').forEach(function(tr){ if(tr.getAttribute('data-days')===d) tr.classList.add('today'); });
+})();
+</script>
+
+<a href="../" class="vtab" aria-label="Voltar a todas as versões">← Versões</a>
+<style>.vtab{position:fixed;left:0;top:50%;z-index:99999;transform:translateY(-50%);writing-mode:vertical-rl;rotate:180deg;padding:14px 8px;border-radius:0 10px 10px 0;background:#B3232D;color:#fff!important;font:600 12px/1 Manrope,Arial,sans-serif;letter-spacing:.06em;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.35);opacity:.9}.vtab:hover{opacity:1}.vtab:focus-visible{outline:2px solid #BFD73B;outline-offset:2px}</style>

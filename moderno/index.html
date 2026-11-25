@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="pt-PT">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Mariazita Cabeleireiros</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Mariazita Cabeleireiros, o primeiro cabeleireiro do Louriçal, desde 1977. Cortes, barbearia, coloração, madeixas, balayage, penteados de noiva e estética. Marcações: 236 968 224.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap">
+<style>
+/* Layout: editorial salon page on black. Big serif headlines (Instrument Serif) over a quiet sans (Manrope),
+   generous space, photos as the main material: split hero, numbered service rows, a swipeable photo rail,
+   a sticky "1977" beside the timeline, a review rail and a large-type visit block. Red = action, logo green = small details. */
+:root{
+  --bg:#0E0E0E; --raise:#161616; --card:#1A1A1A; --fg:#F3F1EE; --muted:#B9B5B0; --dim:#8A8681; --line:rgba(255,255,255,.12);
+  --red:#B3232D; --red-hover:#951B24; --red-soft:#E5737A; --green:#BFD73B; --star:#D9B54A;
+  --serif:"Instrument Serif","Cormorant Garamond",Georgia,serif;
+  --sans:"Manrope","Helvetica Neue",Arial,system-ui,sans-serif;
+  --step--1:clamp(.88rem,.86rem + .1vw,.94rem);
+  --step-0:clamp(1rem,.97rem + .15vw,1.08rem);
+  --step-1:clamp(1.35rem,1.2rem + .6vw,1.7rem);
+  --step-2:clamp(2.2rem,1.6rem + 2.6vw,3.8rem);
+  --step-3:clamp(3rem,2rem + 5vw,6.4rem);
+  --wrap:76rem;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:var(--step-0);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1 em,h2 em{font-style:italic;color:var(--red-soft)}
+p{margin:0}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tag::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--green)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.95rem 1.5rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem;white-space:nowrap;transition:background .25s,border-color .25s,transform .25s}
+.btn.red{background:var(--red);color:#fff}
+.btn.red:hover{background:var(--red-hover);transform:translateY(-2px)}
+.btn.ghost{border:1px solid rgba(255,255,255,.35);color:var(--fg)}
+.btn.ghost:hover{border-color:var(--fg)}
+.btn svg{width:1.05em;height:1.05em;flex:none}
+.arrow{display:inline-block;transition:transform .3s}
+.damask{background-color:var(--bg);background-image:linear-gradient(180deg,rgba(14,14,14,.82),rgba(14,14,14,.94)),url("damasco.jpg");background-size:auto,1400px auto;background-position:center}
+
+/* Revelar ao fazer scroll: só desloca, nunca esconde */
+.rise{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rise:not(.in){transform:translateY(22px)}
+
+/* Topo */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--bg)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:rgba(14,14,14,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.75rem}
+.top .logo{height:32px;width:auto}
+.top nav{display:flex;align-items:center;gap:1.8rem}
+.top nav a:not(.btn){text-decoration:none;font-size:.9rem;color:var(--muted);transition:color .2s}
+.top nav a:not(.btn):hover{color:var(--fg)}
+.top .btn{padding:.6rem 1.15rem;font-size:.88rem}
+@media (max-width:1000px){.top nav a:not(.btn){display:none}}
+
+/* Abertura */
+.hero{border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(2rem,5vw,5rem);align-items:end;padding-block:clamp(3rem,7vw,6rem) clamp(3rem,6vw,5rem)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;align-items:start}}
+.hero .logo-big{width:min(100%,440px);height:auto;margin-bottom:clamp(2rem,4vw,3rem)}
+.hero h1{font-size:var(--step-3)}
+.hero .lede{max-width:34rem;margin-top:1.6rem;color:var(--muted);font-size:clamp(1.02rem,.98rem + .3vw,1.18rem)}
+.hero .actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.rating{display:flex;align-items:center;gap:.9rem;margin-top:2.2rem;text-decoration:none}
+.rating .n{font-family:var(--serif);font-size:2.6rem;line-height:1}
+.rating .stars{color:var(--star);letter-spacing:.12em;font-size:.95rem}
+.rating small{display:block;color:var(--muted);font-size:var(--step--1)}
+.hero .photos{position:relative;display:grid;grid-template-columns:1fr .72fr;gap:.9rem;align-items:end}
+.hero .photos img{width:100%;object-fit:cover;border-radius:18px}
+.hero .photos img:first-child{aspect-ratio:3/4}
+.hero .photos img:last-child{aspect-ratio:3/4;margin-bottom:3rem}
+.badge{position:absolute;left:-1rem;bottom:1.2rem;background:var(--fg);color:var(--bg);border-radius:999px;padding:.55rem 1rem;font-weight:600;font-size:.85rem;display:flex;align-items:center;gap:.5rem;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.badge i{width:.55rem;height:.55rem;border-radius:50%;background:var(--red);font-style:normal}
+@media (max-width:900px){.badge{left:.8rem}}
+
+/* Números */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line)}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stats div{padding:clamp(1.6rem,4vw,2.6rem) 1rem;border-left:1px solid var(--line)}
+.stats div:first-child{border-left:0}
+@media (max-width:760px){.stats div:nth-child(3){border-left:0}.stats div:nth-child(n+3){border-top:1px solid var(--line)}}
+.stats b{display:block;font-family:var(--serif);font-weight:400;font-size:var(--step-2);line-height:1;font-variant-numeric:tabular-nums}
+.stats span{display:block;margin-top:.5rem;color:var(--muted);font-size:var(--step--1)}
+
+/* Secções */
+section.block{padding-block:clamp(4.5rem,10vw,8rem)}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:end;margin-bottom:clamp(2.5rem,6vw,4rem)}
+@media (max-width:800px){.intro{grid-template-columns:1fr}}
+.intro h2{font-size:var(--step-2);margin-top:1rem}
+.intro p{color:var(--muted);max-width:30rem}
+
+/* Serviços em linhas */
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.rows li{display:grid;grid-template-columns:4rem minmax(0,1.1fr) minmax(0,1fr) 2rem;gap:1.5rem;align-items:center;padding-block:clamp(1.4rem,3vw,2rem);border-bottom:1px solid var(--line);transition:background .3s,padding .3s}
+.rows li:hover{background:var(--raise);padding-inline:1rem}
+.rows li:hover .arrow{transform:translateX(6px);color:var(--red-soft)}
+.rows .num{font-size:.85rem;color:var(--green);font-weight:600;font-variant-numeric:tabular-nums}
+.rows h3{font-size:var(--step-1)}
+.rows p{color:var(--muted);font-size:var(--step--1)}
+.rows .arrow{color:var(--dim);font-size:1.3rem;text-align:right}
+@media (max-width:760px){.rows li{grid-template-columns:2.6rem minmax(0,1fr);gap:.4rem 1rem}.rows p{grid-column:2}.rows .arrow{display:none}}
+
+/* Carril de fotos */
+.rail-wrap{position:relative}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(240px,28vw,360px);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1.2rem;scrollbar-width:thin;scrollbar-color:var(--red) transparent}
+.rail figure{margin:0;scroll-snap-align:start}
+.rail button{all:unset;cursor:zoom-in;display:block;border-radius:18px;overflow:hidden}
+.rail button:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.rail img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s ease}
+.rail button:hover img{transform:scale(1.04)}
+.rail figcaption{margin-top:.8rem;display:flex;justify-content:space-between;gap:1rem;font-size:var(--step--1)}
+.rail figcaption span{color:var(--dim)}
+.rail-nav{display:flex;gap:.6rem}
+.rail-nav button{width:3rem;height:3rem;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);font-size:1.1rem;cursor:pointer;transition:border-color .2s,background .2s}
+.rail-nav button:hover{border-color:var(--fg)}
+.under{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.4rem}
+.under p{color:var(--muted);font-size:var(--step--1)}
+dialog.lightbox{border:0;padding:0;background:transparent;max-width:min(92vw,680px);width:100%}
+dialog.lightbox::backdrop{background:rgba(0,0,0,.9)}
+dialog.lightbox img{width:100%;border-radius:14px}
+dialog.lightbox p{margin-top:.8rem;text-align:center;color:var(--fg)}
+dialog.lightbox .close{position:absolute;top:.7rem;right:.7rem;width:2.6rem;height:2.6rem;border-radius:50%;border:0;background:var(--red);color:#fff;font-size:1.3rem;cursor:pointer}
+
+/* Noivas */
+.brides{background:var(--raise);border-block:1px solid var(--line)}
+.brides .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:center}
+@media (max-width:860px){.brides .wrap{grid-template-columns:1fr}}
+.brides .pair{display:grid;grid-template-columns:1.25fr 1fr;gap:1rem;align-items:start}
+.brides .pair img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px}
+.brides .pair img + img{margin-top:4rem;aspect-ratio:1/1}
+.brides h2{font-size:var(--step-2);margin-block:1rem 1.3rem}
+.brides p{color:var(--muted);max-width:31rem}
+.steps{list-style:none;margin:2rem 0 2.2rem;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.steps li{display:flex;gap:1rem;padding-block:.9rem;border-bottom:1px solid var(--line)}
+.steps b{font-weight:600;color:var(--green);font-size:.85rem;min-width:1.8rem;padding-top:.15rem}
+
+/* História */
+.story{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+@media (max-width:860px){.story{grid-template-columns:1fr}}
+.sticky{position:sticky;top:6rem}
+@media (max-width:860px){.sticky{position:static}}
+.big-year{font-family:var(--serif);font-size:clamp(6rem,3rem + 12vw,13rem);line-height:.82;letter-spacing:-.03em}
+.big-year em{font-style:italic;color:var(--red-soft)}
+.story .motto{margin-top:1.6rem;font-family:var(--serif);font-style:italic;font-size:var(--step-1);color:var(--muted)}
+.story h2{font-size:var(--step-2);margin-bottom:1.2rem}
+.story .lead{color:var(--muted);margin-bottom:2.4rem;max-width:36rem}
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:.45rem;top:.6rem;bottom:.6rem;width:1px;background:var(--line)}
+.timeline li{position:relative;padding:0 0 2.2rem 2.4rem}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:0;top:.45rem;width:.95rem;height:.95rem;border-radius:50%;background:var(--bg);border:2px solid var(--green)}
+.timeline li:last-child::before{background:var(--red);border-color:var(--red)}
+.timeline .when{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.timeline h3{font-size:var(--step-1);margin:.35rem 0 .4rem}
+.timeline p{color:var(--muted);font-size:var(--step--1)}
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:clamp(3rem,7vw,5rem)}
+@media (max-width:640px){.team{grid-template-columns:1fr}}
+.member{padding:clamp(1.5rem,3vw,2.2rem);border:1px solid var(--line);border-radius:18px;background:var(--raise);display:grid;gap:.6rem}
+.member .mono{width:3.4rem;height:3.4rem;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:1.8rem;border:1px solid var(--red);color:var(--fg);margin-bottom:.6rem}
+.member h3{font-size:var(--step-1)}
+.member .role{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.member p{color:var(--muted);font-size:var(--step--1)}
+
+/* Avaliações */
+.reviews{border-top:1px solid var(--line)}
+.score{display:flex;align-items:center;gap:1rem;justify-self:end;text-decoration:none}
+@media (max-width:800px){.score{justify-self:start}}
+.score b{font-family:var(--serif);font-weight:400;font-size:4rem;line-height:1}
+.score .stars{color:var(--star);letter-spacing:.12em}
+.score small{display:block;color:var(--muted);font-size:var(--step--1)}
+.quotes{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(260px,31vw,380px);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1.2rem;scrollbar-width:thin;scrollbar-color:var(--red) transparent}
+blockquote{margin:0;scroll-snap-align:start;padding:clamp(1.5rem,3vw,2rem);border:1px solid var(--line);border-radius:18px;background:var(--raise);display:flex;flex-direction:column;justify-content:space-between;gap:1.6rem}
+blockquote .stars{color:var(--star);letter-spacing:.12em;font-size:.9rem}
+blockquote p{font-family:var(--serif);font-size:clamp(1.35rem,1.2rem + .5vw,1.6rem);line-height:1.25}
+blockquote footer{font-size:var(--step--1);color:var(--muted)}
+blockquote footer b{display:block;color:var(--fg);font-weight:600}
+.source{margin-top:1rem;font-size:var(--step--1);color:var(--dim)}
+.source a{color:var(--muted)}
+
+/* Visita */
+.visit .grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+@media (max-width:860px){.visit .grid{grid-template-columns:1fr}}
+.visit h2{font-size:var(--step-2);margin-block:1rem 1.6rem}
+.phone{display:inline-block;font-family:var(--serif);font-size:clamp(2.6rem,1.6rem + 4vw,5rem);line-height:1;text-decoration:none;font-variant-numeric:tabular-nums;border-bottom:2px solid var(--red);padding-bottom:.2rem}
+.phone-2{margin-top:1rem;color:var(--muted)}
+.phone-2 a{text-decoration:none;color:var(--fg)}
+.addr{margin-top:2rem;color:var(--muted)}
+.addr strong{color:var(--fg);font-weight:600}
+.visit .actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
+.hours td{padding:1rem 0;border-bottom:1px solid var(--line);vertical-align:top}
+.hours td:last-child{text-align:right;color:var(--muted)}
+.hours tr.closed td:last-child{font-style:italic}
+.hours tr.today td{color:var(--fg)}
+.hours tr.today td:first-child::after{content:"Hoje";margin-left:.7rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--red);color:#fff;padding:.15rem .5rem;border-radius:999px;vertical-align:.15em}
+.social{display:flex;gap:1.4rem;margin-top:1.6rem;font-size:var(--step--1)}
+.social a{color:var(--muted);text-decoration:none}
+.social a:hover{color:var(--fg)}
+
+footer.site{border-top:1px solid var(--line);padding-block:clamp(3rem,6vw,4.5rem) 7rem}
+footer.site .wrap{display:grid;gap:2rem}
+footer.site .logo-foot{width:min(100%,720px);height:auto;opacity:.95}
+footer.site .row{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:var(--step--1);color:var(--dim)}
+footer.site a{color:var(--muted)}
+@media (min-width:901px){footer.site{padding-bottom:3rem}}
+
+.dock{display:none}
+@media (max-width:900px){
+  .dock{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;position:fixed;left:0;right:0;bottom:0;z-index:15;background:rgba(14,14,14,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding-top:.7rem;padding-bottom:calc(.7rem + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .dock .btn{padding:.8rem 1rem}
+}
+/* O espaço */
+.space .mosaic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.space .mosaic .wide{grid-column:1/-1}
+.space .mosaic button{all:unset;cursor:zoom-in;display:block;border-radius:18px;overflow:hidden;position:relative}
+.space .mosaic button:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.space .mosaic img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .6s ease}
+.space .mosaic .wide img{aspect-ratio:21/9}
+.space .mosaic button:hover img{transform:scale(1.03)}
+.space .mosaic figure{margin:0}
+.space .mosaic figcaption{margin-top:.7rem;font-size:var(--step--1);color:var(--muted)}
+@media (max-width:760px){.space .mosaic{grid-template-columns:1fr 1fr}.space .mosaic .wide img{aspect-ratio:4/3}.space .mosaic figure:last-child{grid-column:1/-1}}
+.space .credit{margin-top:1.2rem;font-size:.8rem;color:var(--dim)}
+.rail,.quotes{cursor:grab}
+.rail.dragging,.quotes.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.rail.dragging img{pointer-events:none}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}html{scroll-behavior:auto}.js .rise:not(.in){transform:none}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Mariazita Cabeleireiros, início"><img class="logo" src="logo-branco.svg" alt="Mariazita Cabeleireiros" width="199" height="32"></a>
+    <nav aria-label="Secções">
+      <a href="#servicos">Serviços</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#espaco">O espaço</a>
+      <a href="#noivas">Noivas</a>
+      <a href="#historia">História</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#visita">Contactos</a>
+      <a class="btn red" href="tel:+351236968224">Marcar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero damask">
+    <div class="wrap">
+      <div>
+        <img class="logo-big" src="logo-branco.svg" alt="Mariazita Cabeleireiros" width="440" height="71">
+        <p class="tag">Louriçal · Desde 1977</p>
+        <h1 style="margin-top:1.2rem">O primeiro cabeleireiro do Louriçal, <em>sempre a acompanhar os tempos.</em></h1>
+        <p class="lede">Cortes, cor, madeixas, balayage, noivas e barbearia. Duas gerações, a Mariazita e o filho João Vítor, com o cuidado de sempre.</p>
+        <div class="actions">
+          <a class="btn red" href="tel:+351236968224">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+            Ligar 236 968 224
+          </a>
+          <a class="btn ghost" href="#trabalhos">Ver trabalhos <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <a class="rating" href="#avaliacoes">
+          <span class="n">4,8</span>
+          <span><span class="stars" aria-hidden="true">★★★★★</span><small>110 avaliações no Google</small></span>
+        </a>
+      </div>
+      <div class="photos">
+        <img src="fotos/balayage-face-frame.jpg" alt="Balayage loiro com face frame feito no salão" width="640" height="640">
+        <img src="fotos/penteado-noiva.jpg" alt="Penteado de noiva" width="513" height="513">
+        <span class="badge"><i></i> Desde 1977</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="stats" aria-label="O salão em números">
+      <div><b>1977</b><span>Ano de abertura</span></div>
+      <div><b class="years" data-since="1977">49</b><span>Anos de experiência</span></div>
+      <div><b>2</b><span>Gerações, mãe e filho</span></div>
+      <div><b>4,8★</b><span>110 avaliações no Google</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="servicos">
+    <div class="wrap">
+      <div class="intro rise">
+        <div>
+          <p class="tag">Serviços</p>
+          <h2>Tudo o que o seu cabelo precisa, <em>num só sítio.</em></h2>
+        </div>
+        <p>Para senhora e homem. Diga-nos o que procura quando ligar e reservamos o tempo certo para si.</p>
+      </div>
+      <ul class="rows">
+        <li class="rise"><span class="num">01</span><h3>Cortes e barbearia</h3><p>Cortes de senhora e de homem, e serviço de barbearia.</p><span class="arrow" aria-hidden="true">→</span></li>
+        <li class="rise"><span class="num">02</span><h3>Coloração, madeixas e balayage</h3><p>Cor de raiz a pontas, madeixas luminosas, balayage e face frame.</p><span class="arrow" aria-hidden="true">→</span></li>
+        <li class="rise"><span class="num">03</span><h3>Penteados e noivas</h3><p>Apanhados, tranças e penteados de festa. Penteados de noiva pensados ao detalhe.</p><span class="arrow" aria-hidden="true">→</span></li>
+        <li class="rise"><span class="num">04</span><h3>Alisamentos e ondulações</h3><p>Para um cabelo mais liso e fácil de tratar, ou com movimento e volume.</p><span class="arrow" aria-hidden="true">→</span></li>
+        <li class="rise"><span class="num">05</span><h3>Tratamentos capilares</h3><p>Tratamentos Alfaparf Milano para devolver ao cabelo força e brilho.</p><span class="arrow" aria-hidden="true">→</span></li>
+        <li class="rise"><span class="num">06</span><h3>Estética e depilação definitiva</h3><p>Tratamentos corporais e depilação definitiva, em parceria com a Activderm Estética.</p><span class="arrow" aria-hidden="true">→</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="trabalhos" style="padding-top:0">
+    <div class="wrap">
+      <div class="intro rise">
+        <div>
+          <p class="tag">Trabalhos</p>
+          <h2>Feitos cá, <em>no salão.</em></h2>
+        </div>
+        <div class="rail-nav" style="justify-self:end">
+          <button type="button" id="prev" aria-label="Fotos anteriores">←</button>
+          <button type="button" id="next" aria-label="Fotos seguintes">→</button>
+        </div>
+      </div>
+      <div class="rail" id="rail">
+        <figure><button data-full="fotos/balayage-moreno.jpg" data-cap="Balayage em cabelo moreno"><img src="fotos/balayage-moreno.jpg" alt="Balayage em cabelo moreno" loading="lazy"></button><figcaption>Balayage em cabelo moreno <span>Cor</span></figcaption></figure>
+        <figure><button data-full="fotos/penteado-noiva.jpg" data-cap="Penteado de noiva"><img src="fotos/penteado-noiva.jpg" alt="Penteado de noiva" loading="lazy"></button><figcaption>Penteado de noiva <span>Noivas</span></figcaption></figure>
+        <figure><button data-full="fotos/madeixas-loiras.jpg" data-cap="Madeixas loiras"><img src="fotos/madeixas-loiras.jpg" alt="Madeixas loiras" loading="lazy"></button><figcaption>Madeixas loiras <span>Cor</span></figcaption></figure>
+        <figure><button data-full="fotos/apanhado.jpg" data-cap="Apanhado"><img src="fotos/apanhado.jpg" alt="Apanhado elegante" loading="lazy"></button><figcaption>Apanhado <span>Penteados</span></figcaption></figure>
+        <figure><button data-full="fotos/balayage-face-frame.jpg" data-cap="Balayage com face frame"><img src="fotos/balayage-face-frame.jpg" alt="Balayage com face frame" loading="lazy"></button><figcaption>Face frame <span>Cor</span></figcaption></figure>
+        <figure><button data-full="fotos/trancas.jpg" data-cap="Penteado de festa com tranças"><img src="fotos/trancas.jpg" alt="Penteado de festa com tranças" loading="lazy"></button><figcaption>Tranças <span>Penteados</span></figcaption></figure>
+        <figure><button data-full="fotos/madeixas.jpg" data-cap="Madeixas"><img src="fotos/madeixas.jpg" alt="Madeixas com luz e dimensão" loading="lazy"></button><figcaption>Madeixas <span>Cor</span></figcaption></figure>
+        <figure><button data-full="fotos/penteados-festa.jpg" data-cap="Casamentos e festas"><img src="fotos/penteados-festa.jpg" alt="Penteado para casamento" loading="lazy"></button><figcaption>Casamentos e festas <span>Penteados</span></figcaption></figure>
+      </div>
+      <div class="under">
+        <p>Novos trabalhos todas as semanas no Instagram.</p>
+        <a class="btn ghost" href="https://www.instagram.com/mariazita_cabeleireiros/" target="_blank" rel="noopener">@mariazita_cabeleireiros <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block space" id="espaco" style="padding-top:0">
+    <div class="wrap">
+      <div class="intro rise">
+        <div>
+          <p class="tag">O espaço</p>
+          <h2>Luz, vermelho <em>e espaço para si.</em></h2>
+        </div>
+        <p>Um salão amplo e luminoso na Urbanização Lourisol, com postos de corte, zona de lavagem, receção e sala de espera junto às grandes janelas.</p>
+      </div>
+      <div class="mosaic">
+        <figure class="wide rise"><button data-full="fotos/espaco-salao.jpg" data-cap="O salão, com os postos de corte e a janela"><img src="fotos/espaco-salao.jpg" alt="Interior do salão com cadeiras vermelhas e brancas e grandes janelas" loading="lazy"></button><figcaption>O salão</figcaption></figure>
+        <figure class="rise"><button data-full="fotos/espaco-cadeiras.jpg" data-cap="Postos de corte"><img src="fotos/espaco-cadeiras.jpg" alt="Postos de corte com espelhos e cadeiras vermelhas e brancas" loading="lazy"></button><figcaption>Postos de corte</figcaption></figure>
+        <figure class="rise"><button data-full="fotos/espaco-lavagem.jpg" data-cap="Zona de lavagem"><img src="fotos/espaco-lavagem.jpg" alt="Zona de lavagem com cadeiras vermelhas e balcão" loading="lazy"></button><figcaption>Zona de lavagem</figcaption></figure>
+        <figure class="rise"><button data-full="fotos/espaco-rececao.jpg" data-cap="Receção e produtos"><img src="fotos/espaco-rececao.jpg" alt="Balcão de receção e prateleiras de produtos" loading="lazy"></button><figcaption>Receção e produtos</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block brides" id="noivas">
+    <div class="wrap">
+      <div class="pair rise">
+        <img src="fotos/penteado-noiva.jpg" alt="Penteado de noiva feito na Mariazita Cabeleireiros" loading="lazy">
+        <img src="fotos/penteados-festa.jpg" alt="Penteado para casamento" loading="lazy">
+      </div>
+      <div class="rise">
+        <p class="tag">Casamentos e festas</p>
+        <h2>O seu dia, <em>o seu penteado.</em></h2>
+        <p>Penteados de noiva, madrinhas e convidadas, pensados para acompanhar o vestido e durar o dia inteiro.</p>
+        <ol class="steps">
+          <li><b>01</b><span>Conversa antes do dia para escolher o penteado</span></li>
+          <li><b>02</b><span>Apanhados, tranças e cabelo solto com ondas</span></li>
+          <li><b>03</b><span>Penteados para a família e convidadas</span></li>
+        </ol>
+        <a class="btn red" href="tel:+351236968224">Marcar para o casamento</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="historia">
+    <div class="wrap">
+      <div class="story">
+        <div class="sticky">
+          <p class="tag">A nossa história</p>
+          <div class="big-year" style="margin-top:1.2rem">19<em>77</em></div>
+          <p class="motto">“Acompanhar a vida, nunca ficar parado.”</p>
+        </div>
+        <div>
+          <h2 class="rise">Quase meio século <em>a mudar com os tempos.</em></h2>
+          <p class="lead rise">A Mariazita abriu o primeiro salão de cabeleireiro do Louriçal. Desde então o salão mudou de casa, foi remodelado várias vezes e foi aprendendo novas técnicas, sempre com a mesma ideia: acompanhar a vida de quem cá vem.</p>
+          <ol class="timeline">
+            <li class="rise"><span class="when">1977</span><h3>O primeiro salão do Louriçal</h3><p>A Mariazita abre portas e torna-se o cabeleireiro da terra.</p></li>
+            <li class="rise"><span class="when">Sempre a mudar</span><h3>Quatro casas, sempre no Louriçal</h3><p>Da Rua Capitão Cadete até à Urbanização Lourisol, o salão mudou de casa e renovou o espaço sempre que foi preciso.</p></li>
+            <li class="rise"><span class="when">2006</span><h3>O João Vítor junta-se à mãe</h3><p>Começa a nova geração: mãe e filho passam a trabalhar lado a lado.</p></li>
+            <li class="rise"><span class="when">Hoje</span><h3>Urbanização Lourisol</h3><p>Balayage, madeixas, noivas, barbearia e tratamentos Alfaparf Milano, com o mesmo cuidado de sempre.</p></li>
+          </ol>
+        </div>
+      </div>
+      <div class="team" id="salao">
+        <article class="member rise">
+          <span class="mono" aria-hidden="true">M</span>
+          <p class="role">Fundadora</p>
+          <h3>Mariazita</h3>
+          <p>Abriu o primeiro salão de cabeleireiro do Louriçal em 1977 e tem <span class="years" data-since="1977">49</span> anos de experiência em corte, cor e penteados.</p>
+        </article>
+        <article class="member rise">
+          <span class="mono" aria-hidden="true">J</span>
+          <p class="role">Cabeleireiro e barbeiro</p>
+          <h3>João Vítor</h3>
+          <p>Trabalha no salão desde 2006, há <span class="years" data-since="2006">20</span> anos, ao lado da mãe, nos cortes, na cor e na barbearia.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reviews" id="avaliacoes">
+    <div class="wrap">
+      <div class="intro rise">
+        <div>
+          <p class="tag">Avaliações</p>
+          <h2>O que dizem <em>os clientes.</em></h2>
+        </div>
+        <a class="score" href="https://www.google.com/maps/place/Mariazita+Cabeleireiros/@40.0063371,-8.735337,17z" target="_blank" rel="noopener">
+          <b>4,8</b>
+          <span><span class="stars" aria-hidden="true">★★★★★</span><small>110 avaliações no Google</small></span>
+        </a>
+      </div>
+      <div class="quotes">
+        <blockquote>
+          <span class="stars" aria-label="5 estrelas">★★★★★</span>
+          <p>“Proprietários são de uma simpatia fantástica. Sempre grande profissionalismo! Impossível sair de lá insatisfeito.”</p>
+          <footer><b>Sandrine Cabecinhas</b>Google</footer>
+        </blockquote>
+        <blockquote>
+          <span class="stars" aria-label="5 estrelas">★★★★★</span>
+          <p>“Excelente atendimento e serviço top! O João Vítor é um ótimo profissional!”</p>
+          <footer><b>Mónica Oliveira</b>Google</footer>
+        </blockquote>
+        <blockquote>
+          <span class="stars" aria-label="5 estrelas">★★★★★</span>
+          <p>“Como uma família francesa de quatro pessoas em férias, fomos recebidos com muita gentileza e carinho. Recomendamos muito!”</p>
+          <footer><b>Aurore Fouquet</b>Google, traduzido do francês</footer>
+        </blockquote>
+        <blockquote>
+          <span class="stars" aria-label="5 estrelas">★★★★★</span>
+          <p>“A D. Mariazita é um doce de pessoa!!”</p>
+          <footer><b>Hugo Daniel</b>Google</footer>
+        </blockquote>
+      </div>
+      <p class="source">Avaliações públicas publicadas no Google Maps (Google Places). <a href="https://www.google.com/maps/place/Mariazita+Cabeleireiros/@40.0063371,-8.735337,17z" target="_blank" rel="noopener">Ver todas as avaliações ↗</a></p>
+    </div>
+  </section>
+
+  <section class="block visit damask" id="visita">
+    <div class="wrap">
+      <div class="grid">
+        <div class="rise">
+          <p class="tag">Marcações</p>
+          <h2>Ligue-nos e <em>marcamos já.</em></h2>
+          <a class="phone" href="tel:+351236968224">236 968 224</a>
+          <p class="phone-2">Telemóvel <a href="tel:+351916589104">916 589 104</a></p>
+          <p class="addr"><strong>Urbanização Lourisol, Lote 16, Loja 1</strong><br>3105-165 Louriçal</p>
+          <div class="actions">
+            <a class="btn red" href="https://www.google.com/maps/place/Mariazita+Cabeleireiros/@40.0063371,-8.735337,17z" target="_blank" rel="noopener">Como chegar <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="social">
+            <a href="https://www.instagram.com/mariazita_cabeleireiros/" target="_blank" rel="noopener">Instagram ↗</a>
+            <a href="https://www.facebook.com/mariazitacabeleireiroestetica" target="_blank" rel="noopener">Facebook ↗</a>
+          </div>
+        </div>
+        <div class="rise">
+          <p class="tag" style="margin-bottom:1.2rem">Horário</p>
+          <table class="hours">
+            <tbody>
+              <tr class="closed" data-days="1"><td>Segunda</td><td>Fechado</td></tr>
+              <tr data-days="2"><td>Terça</td><td>9:00–13:00 · 14:30–19:00</td></tr>
+              <tr data-days="3"><td>Quarta</td><td>9:00–13:00 · 14:30–19:00</td></tr>
+              <tr data-days="4"><td>Quinta</td><td>9:00–13:00 · 14:30–19:00</td></tr>
+              <tr data-days="5"><td>Sexta</td><td>9:00–13:00 · 14:30–19:00</td></tr>
+              <tr data-days="6"><td>Sábado</td><td>9:00–13:00 · 14:30–19:00</td></tr>
+              <tr data-days="0"><td>Domingo</td><td>9:00–13:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <img class="logo-foot" src="logo-branco.svg" alt="Mariazita Cabeleireiros" width="720" height="116" loading="lazy">
+    <div class="row">
+      <span>© <span class="this-year">2026</span> Mariazita Cabeleireiros · Desde 1977 · Louriçal</span>
+      <span><a href="tel:+351236968224">236 968 224</a> · <a href="https://www.instagram.com/mariazita_cabeleireiros/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/mariazitacabeleireiroestetica" target="_blank" rel="noopener">Facebook</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="dock" aria-label="Ações rápidas">
+  <a class="btn red" href="tel:+351236968224">Ligar</a>
+  <a class="btn ghost" href="https://www.google.com/maps/place/Mariazita+Cabeleireiros/@40.0063371,-8.735337,17z" target="_blank" rel="noopener">Como chegar</a>
+</div>
+
+<dialog class="lightbox" id="lightbox" aria-label="Fotografia ampliada">
+  <button class="close" id="lb-close" aria-label="Fechar">×</button>
+  <img id="lb-img" src="" alt="">
+  <p id="lb-cap"></p>
+</dialog>
+
+<script>
+(function(){
+  var now=new Date(), y=now.getFullYear(), d=now.getDay();
+  document.querySelectorAll('.years[data-since]').forEach(function(el){ el.textContent=String(y-parseInt(el.getAttribute('data-since'),10)); });
+  document.querySelectorAll('.this-year').forEach(function(el){ el.textContent=String(y); });
+  document.querySelectorAll('.hours tr[data-days]').forEach(function(tr){ if(tr.getAttribute('data-days').split(',').indexOf(String(d))>-1) tr.classList.add('today'); });
+
+  // Animação suave ao entrar no ecrã (os elementos estão sempre visíveis; só deslizam)
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.documentElement.classList.add('js');
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+  }
+
+  // Carril de fotos
+  var rail=document.getElementById('rail');
+  function step(){ var f=rail.querySelector('figure'); return f ? f.getBoundingClientRect().width+16 : 300; }
+  document.getElementById('prev').addEventListener('click',function(){ rail.scrollBy({left:-step(),behavior:'smooth'}); });
+  document.getElementById('next').addEventListener('click',function(){ rail.scrollBy({left:step(),behavior:'smooth'}); });
+
+  // Arrastar os carris com o rato (no telemóvel já desliza com o dedo)
+  document.querySelectorAll('.rail, .quotes').forEach(function(el){
+    var down=false, moved=false, x0=0, s0=0;
+    el.addEventListener('pointerdown',function(e){ if(e.pointerType!=='mouse'||e.button!==0) return; down=true; moved=false; x0=e.clientX; s0=el.scrollLeft; });
+    window.addEventListener('pointermove',function(e){ if(!down) return; var dx=e.clientX-x0; if(!moved&&Math.abs(dx)>5){ moved=true; el.classList.add('dragging'); } if(moved){ el.scrollLeft=s0-dx; e.preventDefault(); } });
+    window.addEventListener('pointerup',function(){ if(!down) return; down=false; if(moved){ var l=el.scrollLeft; el.classList.remove('dragging'); el.scrollLeft=l; var f=el.firstElementChild, w=f?f.getBoundingClientRect().width+16:300; el.scrollTo({left:Math.round(l/w)*w,behavior:'smooth'}); } });
+    el.addEventListener('click',function(e){ if(moved){ e.stopPropagation(); e.preventDefault(); moved=false; } },true);
+    el.addEventListener('dragstart',function(e){ e.preventDefault(); });
+  });
+
+  // Ampliar fotos
+  var lb=document.getElementById('lightbox'), img=document.getElementById('lb-img'), cap=document.getElementById('lb-cap');
+  document.querySelectorAll('button[data-full]').forEach(function(b){
+    b.addEventListener('click',function(){ img.src=b.getAttribute('data-full'); img.alt=b.getAttribute('data-cap'); cap.textContent=b.getAttribute('data-cap'); if(lb.showModal) lb.showModal(); });
+  });
+  document.getElementById('lb-close').addEventListener('click',function(){ lb.close(); });
+  lb.addEventListener('click',function(e){ if(e.target===lb) lb.close(); });
+})();
+</script>
+
+<a href="../" class="vtab" aria-label="Voltar a todas as versões">← Versões</a>
+<style>.vtab{position:fixed;left:0;top:50%;z-index:99999;transform:translateY(-50%);writing-mode:vertical-rl;rotate:180deg;padding:14px 8px;border-radius:0 10px 10px 0;background:#B3232D;color:#fff!important;font:600 12px/1 Manrope,Arial,sans-serif;letter-spacing:.06em;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.35);opacity:.9}.vtab:hover{opacity:1}.vtab:focus-visible{outline:2px solid #BFD73B;outline-offset:2px}</style>
