@@ -46,8 +46,8 @@ section{position:relative;padding-block:clamp(5rem,12vw,9rem)}
 
 /* Cabeçalho mínimo + menu de ecrã inteiro */
 .top{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
-.top .logo{height:50px;width:auto;transition:opacity .3s}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:clamp(84px,8vw,100px)}
+.top .logo{height:clamp(64px,7vw,84px);width:auto;transition:opacity .3s}
 .menu-btn{display:inline-flex;align-items:center;gap:.6rem;min-height:44px;padding:.5rem 1rem;border-radius:999px;border:1px solid var(--line);background:rgba(255,249,239,.7);backdrop-filter:blur(10px);cursor:pointer;font-weight:600;font-size:.9rem}
 .menu-btn i{position:relative;width:16px;height:10px}
 .menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:currentColor;transition:transform .3s var(--ease),top .3s}
@@ -63,12 +63,12 @@ section{position:relative;padding-block:clamp(5rem,12vw,9rem)}
 .overlay nav a small{font-family:var(--sans);font-size:.8rem;color:var(--dim);vertical-align:super;margin-right:.5rem}
 
 /* ABERTURA: luz que revela a lona */
-.hero{min-height:100svh;display:grid;align-content:end;padding:0;overflow:hidden;isolation:isolate}
+.hero{display:grid;align-content:start;padding:0;overflow:hidden;isolation:isolate}
 .hero .lona{position:absolute;inset:0;z-index:-2;background:url(damasco-rosa.jpg) center/auto 190px repeat;
   -webkit-mask-image:radial-gradient(circle 280px at var(--mx,70%) var(--my,35%),#000 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.07) 100%);
           mask-image:radial-gradient(circle 280px at var(--mx,70%) var(--my,35%),#000 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.07) 100%)}
 .hero .glow{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle 420px at var(--mx,70%) var(--my,35%),rgba(92,58,21,.08),transparent 70%)}
-.hero .inner{width:100%;padding-bottom:calc(96px + env(safe-area-inset-bottom));padding-top:110px}
+.hero .inner{width:100%;padding-bottom:clamp(2.5rem,5vw,4rem);padding-top:clamp(116px,11vw,150px)}
 .hero h1{font-family:var(--serif);font-size:clamp(2.5rem,1.3rem + 3.8vw,5rem);max-width:15ch}
 .hero .lede{max-width:30rem;margin-top:1.4rem;color:var(--muted);font-size:clamp(1.02rem,.98rem + .3vw,1.2rem)}
 .hero .row{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1.6rem 2rem}
@@ -76,8 +76,6 @@ section{position:relative;padding-block:clamp(5rem,12vw,9rem)}
 .hero .hint span{display:inline-block;width:18px;height:28px;border:1.5px solid var(--dim);border-radius:10px;position:relative}
 .hero .hint span::after{content:"";position:absolute;left:50%;top:5px;width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:var(--fg);animation:wheel 1.6s infinite}
 @keyframes wheel{0%{transform:translateY(0);opacity:1}70%{transform:translateY(8px);opacity:0}100%{opacity:0}}
-.hero .seal{display:block;width:clamp(120px,36vw,150px);height:auto;margin-bottom:1.6rem}
-@media (min-width:900px){.hero .seal{position:absolute;z-index:0;right:clamp(2rem,9vw,9rem);top:50%;translate:0 -60%;width:min(30vw,46svh);margin:0}}
 /* O ano gigante, com a fotografia do salão dentro das letras */
 .year-photo{font-family:var(--serif);font-size:min(13vw,15svh);line-height:.8;letter-spacing:-.03em;margin-top:clamp(1.5rem,3vw,2.5rem);user-select:none;white-space:nowrap;
   color:transparent;-webkit-text-stroke:1.5px rgba(43,26,12,.35)}
@@ -270,7 +268,7 @@ footer.site a:hover{color:var(--fg)}
 
 <header class="top">
   <div class="wrap">
-    <a href="#inicio" aria-label="Mariazita Cabeleireiros, início"><img class="logo" src="logo-monograma.png" alt="Mariazita Cabeleireiros" width="291" height="221"></a>
+    <a href="#inicio" aria-label="Mariazita Cabeleireiros, início"><img class="logo" src="logo-anel.png" alt="Mariazita Cabeleireiros" width="500" height="510"></a>
     <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="overlay"><i aria-hidden="true"></i><span>Menu</span></button>
   </div>
 </header>
@@ -291,7 +289,6 @@ footer.site a:hover{color:var(--fg)}
     <div class="lona" aria-hidden="true"></div>
     <div class="glow" aria-hidden="true"></div>
     <div class="wrap inner">
-      <img class="seal" src="logo-anel.png" alt="Mariazita Cabeleireiros" width="500" height="510">
       <p class="kicker">Louriçal · desde 1977</p>
       <div class="row" style="margin-top:1.2rem">
         <div>
