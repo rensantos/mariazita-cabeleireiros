@@ -76,6 +76,8 @@ section{position:relative;padding-block:clamp(4rem,9vw,7rem)}
 .hero .hint span{display:inline-block;width:18px;height:28px;border:1.5px solid var(--dim);border-radius:10px;position:relative}
 .hero .hint span::after{content:"";position:absolute;left:50%;top:5px;width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:var(--fg);animation:wheel 1.6s infinite}
 @keyframes wheel{0%{transform:translateY(0);opacity:1}70%{transform:translateY(8px);opacity:0}100%{opacity:0}}
+.hero .seal{display:block;width:clamp(120px,36vw,150px);height:auto;margin-bottom:1.6rem}
+@media (min-width:900px){.hero .seal{position:absolute;z-index:0;right:clamp(2rem,9vw,9rem);top:50%;translate:0 -60%;width:min(30vw,46svh);margin:0}}
 /* O ano gigante, com a fotografia do salão dentro das letras */
 .year-photo{font-family:var(--serif);font-size:min(13vw,15svh);line-height:.8;letter-spacing:-.03em;margin-top:clamp(1.5rem,3vw,2.5rem);user-select:none;white-space:nowrap;
   color:transparent;-webkit-text-stroke:1.5px rgba(43,26,12,.35)}
@@ -289,6 +291,7 @@ footer.site a:hover{color:var(--fg)}
     <div class="lona" aria-hidden="true"></div>
     <div class="glow" aria-hidden="true"></div>
     <div class="wrap inner">
+      <img class="seal" src="logo-anel.png" alt="Mariazita Cabeleireiros" width="500" height="510">
       <p class="kicker">Louriçal · desde 1977</p>
       <div class="row" style="margin-top:1.2rem">
         <div>
