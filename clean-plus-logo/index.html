@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="pt-PT">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Mariazita Cabeleireiros · Clean+ · logótipo novo</title>
+<meta name="description" content="Mariazita Cabeleireiros, o primeiro cabeleireiro do Louriçal, desde 1977. Marcações: 236 968 224.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Clean+: o mesmo branco, uma só letra e muito espaço da versão clean,
+   com funcionalidades úteis: estado "Aberto agora", filtros nos trabalhos, fotos para arrastar,
+   visita ao espaço, e um assistente que prepara o pedido de marcação por SMS.
+   Vermelho = ação e seleção. Tudo funciona com toque, rato e teclado. */
+:root{
+  --bg:#FFFFFF; --soft:#F6F5F3; --fg:#161616; --muted:#5F5F5F; --dim:#8A8A8A; --line:#E7E5E1;
+  --red:#B3232D; --red-hover:#951B24; --red-tint:#FBEDEE; --ok:#2F8F4E;
+  --wrap:72rem; --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Manrope","Helvetica Neue",Arial,sans-serif;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+h1,h2,h3{font-weight:500;letter-spacing:-.02em;line-height:1.12;margin:0}
+h1{font-size:clamp(2.2rem,1.5rem + 3vw,3.9rem);max-width:15ch}
+h2{font-size:clamp(1.7rem,1.3rem + 1.4vw,2.4rem)}
+h3{font-size:1.05rem;font-weight:600;letter-spacing:0}
+p{margin:0}
+.label{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:.7rem 1.35rem;border-radius:999px;font-weight:600;font-size:.96rem;text-decoration:none;border:1px solid var(--fg);background:transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .15s}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.btn.red:hover{background:var(--red-hover);border-color:var(--red-hover)}
+.btn.line:hover{background:var(--fg);color:#fff}
+.btn:active{transform:scale(.97)}
+.btn[aria-disabled="true"]{opacity:.4;pointer-events:none}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+section{padding-block:clamp(3.5rem,8vw,6rem);border-top:1px solid var(--line)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1rem 2rem;margin-bottom:clamp(1.8rem,4vw,2.6rem)}
+.head p.aside{max-width:26rem;color:var(--muted)}
+
+/* Cabeçalho */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:68px}
+header .logo{height:50px;width:auto}
+header nav{display:flex;align-items:center;gap:1.4rem;font-size:.94rem}
+header nav a.l{text-decoration:none;color:var(--muted)}
+header nav a.l:hover{color:var(--fg)}
+.pill{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .8rem;border-radius:999px;background:var(--soft);font-size:.85rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--dim)}
+.pill.open .dot{background:var(--ok);box-shadow:0 0 0 0 rgba(47,143,78,.5);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 7px rgba(47,143,78,0)}100%{box-shadow:0 0 0 0 rgba(47,143,78,0)}}
+header .btn{min-height:40px;padding:.4rem 1.05rem;font-size:.9rem}
+@media (max-width:960px){header nav a.l{display:none}}
+@media (max-width:520px){header .pill .t2{display:none}}
+
+/* Abertura */
+.hero{border-top:0;padding-block:clamp(2.5rem,6vw,4.5rem)}
+.hero .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+@media (max-width:860px){.hero .grid{grid-template-columns:1fr}}
+.hero .lede{margin-top:1.2rem;max-width:32rem;color:var(--muted);font-size:clamp(1.05rem,1rem + .3vw,1.18rem)}
+.hero .actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+.slides{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--soft)}
+@media (max-width:860px){.slides{aspect-ratio:4/3}}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity 1s,transform 6s linear}
+.slides img.on{opacity:1;transform:scale(1)}
+.slides .cap{position:absolute;left:12px;bottom:12px;padding:.35rem .75rem;border-radius:999px;background:rgba(255,255,255,.92);font-size:.82rem;font-weight:600}
+.slides .bars{position:absolute;right:12px;bottom:18px;display:flex;gap:5px}
+.slides .bars i{width:22px;height:3px;border-radius:2px;background:rgba(255,255,255,.55);overflow:hidden;position:relative}
+.slides .bars i.on::after{content:"";position:absolute;inset:0;background:#fff;transform-origin:0 50%;animation:fill 5s linear forwards}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* Números */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line)}
+@media (max-width:700px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stats div{padding:1.5rem 1rem 1.5rem 0}
+.stats b{display:block;font-size:clamp(1.8rem,1.4rem + 1.4vw,2.6rem);font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.stats span{color:var(--muted);font-size:.92rem}
+
+/* Serviços */
+.services{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+@media (max-width:900px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.services{grid-template-columns:1fr}}
+.services li{background:var(--bg);padding:1.4rem 1.3rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;transition:background .2s}
+.services li:hover{background:var(--soft)}
+.services .n{font-size:.78rem;color:var(--dim);font-variant-numeric:tabular-nums}
+.services p{color:var(--muted);font-size:.95rem}
+.services button{all:unset;cursor:pointer;margin-top:auto;padding-top:.8rem;font-size:.9rem;font-weight:600;color:var(--red)}
+.services button:hover{text-decoration:underline}
+.services button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+/* Trabalhos: filtros + fotos para arrastar */
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{min-height:40px;padding:.4rem 1rem;border-radius:999px;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-size:.9rem;font-weight:600;transition:background .2s,border-color .2s,color .2s}
+.chip:hover{border-color:var(--fg)}
+.chip[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:#fff}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(220px,26vw,320px);gap:.8rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;margin-top:1.4rem;scrollbar-width:thin;scrollbar-color:var(--red) transparent;cursor:grab}
+.rail.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.rail figure{margin:0;scroll-snap-align:start}
+.rail figure[hidden]{display:none}
+.rail button{all:unset;cursor:zoom-in;display:block;border-radius:8px;overflow:hidden}
+.rail button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.rail img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s var(--ease);pointer-events:none}
+.rail button:hover img{transform:scale(1.03)}
+.rail figcaption{margin-top:.6rem;font-size:.9rem;display:flex;justify-content:space-between;gap:1rem}
+.rail figcaption span{color:var(--dim)}
+.rail-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-top:.6rem}
+.rail-foot .arrows{display:flex;gap:.5rem}
+.rail-foot .arrows button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer}
+.rail-foot .arrows button:hover{border-color:var(--fg)}
+.rail-foot p{color:var(--muted);font-size:.93rem}
+.rail-foot a{font-weight:600}
+
+/* O espaço: separadores que trocam a própria fotografia */
+.space{background:var(--soft)}
+.viewer{position:relative;aspect-ratio:21/9;border-radius:10px;overflow:hidden;background:#ddd;margin-top:1.2rem}
+@media (max-width:700px){.viewer{aspect-ratio:4/3}}
+.viewer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.viewer img.on{opacity:1}
+.viewer .note{position:absolute;left:12px;bottom:12px;right:12px;max-width:28rem;padding:.8rem 1rem;border-radius:8px;background:rgba(255,255,255,.94);font-size:.95rem}
+.viewer .note b{display:block;font-weight:600}
+.viewer .note span{color:var(--muted)}
+
+/* História: linha do tempo horizontal */
+.timeline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem;position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--line)}
+.timeline li{position:relative;padding-top:2rem}
+.timeline li::before{content:"";position:absolute;left:0;top:3px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--red)}
+.timeline li:last-child::before{background:var(--red)}
+.timeline .y{font-size:1.5rem;font-weight:500;letter-spacing:-.02em}
+.timeline p{color:var(--muted);font-size:.95rem;margin-top:.3rem}
+@media (max-width:760px){
+  .timeline{grid-template-columns:1fr;gap:0}
+  .timeline::before{left:6px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .timeline li{padding:0 0 1.6rem 2rem}
+  .timeline li::before{top:.55rem}
+}
+.motto{margin-top:2.2rem;font-size:clamp(1.25rem,1.1rem + .6vw,1.6rem);font-weight:500;letter-spacing:-.01em;max-width:34rem}
+.motto span{color:var(--red)}
+
+/* Avaliações */
+.reviews .grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,2fr);gap:clamp(1.5rem,5vw,4rem);align-items:start}
+@media (max-width:820px){.reviews .grid{grid-template-columns:1fr}}
+.score b{display:block;font-size:clamp(3.5rem,3rem + 2vw,5rem);font-weight:500;letter-spacing:-.03em;line-height:1}
+.stars{color:#C9A43A;letter-spacing:.1em}
+.score small{display:block;color:var(--muted);margin-top:.2rem}
+.quote-wrap{position:relative;min-height:12rem}
+.quote{margin:0;position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s var(--ease);pointer-events:none}
+.quote.on{position:relative;opacity:1;transform:none;pointer-events:auto}
+.quote p{font-size:clamp(1.25rem,1.1rem + .8vw,1.75rem);font-weight:500;letter-spacing:-.01em;line-height:1.35}
+.quote footer{margin-top:1rem;color:var(--muted);font-size:.92rem}
+.quote footer b{color:var(--fg);font-weight:600;margin-right:.4rem}
+.qnav{display:flex;align-items:center;gap:.4rem;margin-top:1.4rem}
+.qnav button{width:44px;height:44px;border:0;background:transparent;cursor:pointer;display:grid;place-items:center;padding:0}
+.qnav button::before{content:"";width:26px;height:3px;border-radius:2px;background:var(--line);transition:background .3s}
+.qnav button[aria-current="true"]::before{background:var(--red)}
+.source{margin-top:1rem;font-size:.82rem;color:var(--dim)}
+
+/* Assistente de marcação */
+.book{background:var(--soft)}
+.book .grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(1.5rem,5vw,3.5rem);align-items:start}
+@media (max-width:860px){.book .grid{grid-template-columns:1fr}}
+.step{padding-block:1.2rem;border-top:1px solid var(--line)}
+.step:first-child{border-top:0;padding-top:0}
+.step h3{display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem}
+.step h3 i{font-style:normal;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--fg);color:#fff;font-size:.8rem}
+.chip:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.book input[type=text]{width:100%;min-height:48px;padding:.6rem .9rem;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.book input[type=text]:focus{outline:2px solid var(--red);outline-offset:1px;border-color:transparent}
+.summary{position:sticky;top:88px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:1.4rem}
+.summary .msg{margin-top:.6rem;padding:1rem;border-radius:10px;background:var(--red-tint);font-size:1rem;line-height:1.5;min-height:5.5rem}
+.summary .msg.empty{color:var(--muted);background:var(--soft)}
+.summary .actions{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1rem}
+.summary small{display:block;margin-top:.9rem;color:var(--muted);font-size:.84rem}
+
+/* Contactos */
+.contact .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem}
+@media (max-width:700px){.contact .cols{grid-template-columns:1fr}}
+.contact .phone{display:inline-block;font-size:clamp(2rem,1.5rem + 2vw,3rem);font-weight:500;letter-spacing:-.02em;text-decoration:none}
+.contact address{font-style:normal;color:var(--muted);margin-top:1rem}
+.contact address strong{color:var(--fg);font-weight:600}
+.contact .actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+table{width:100%;border-collapse:collapse;font-size:.97rem}
+td{padding:.6rem 0;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right;color:var(--muted)}
+tr.today td{font-weight:600;color:var(--fg)}
+tr.today td:first-child::after{content:"Hoje";margin-left:.6rem;padding:.1rem .5rem;border-radius:999px;background:var(--red);color:#fff;font-size:.72rem;vertical-align:2px}
+
+footer.site{border-top:1px solid var(--line);padding-block:2rem 6rem;font-size:.88rem;color:var(--muted)}
+footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
+footer.site .foot-logo{height:84px;width:auto;flex-basis:100%;object-fit:contain;object-position:left}
+footer.site a{text-decoration:none}
+footer.site a:hover{text-decoration:underline}
+@media (min-width:861px){footer.site{padding-bottom:2rem}}
+
+/* Barra rápida no telemóvel */
+.dock{position:fixed;z-index:30;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));display:none;grid-template-columns:1fr 1fr;gap:.5rem;padding:.5rem;border-radius:999px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.dock .btn{min-height:46px}
+@media (max-width:860px){.dock{display:grid}}
+
+/* Ampliar fotos */
+.lightbox{border:0;padding:0;background:transparent;max-width:min(92vw,900px);max-height:92vh}
+.lightbox::backdrop{background:rgba(255,255,255,.94)}
+.lightbox img{max-height:80vh;width:auto;border-radius:8px}
+.lightbox p{margin-top:.6rem;text-align:center;color:var(--fg);font-weight:600}
+.lightbox .close{position:fixed;top:14px;right:14px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:1.3rem}
+
+.js .rise{transition:transform .8s var(--ease),opacity .8s}
+.js .rise:not(.in){transform:translateY(18px);opacity:.3}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .rise:not(.in){transform:none;opacity:1}}
+</style>
+
+<header>
+  <div class="wrap">
+    <a href="#inicio" aria-label="Mariazita Cabeleireiros, início"><img class="logo" src="logo-monograma.png" alt="Mariazita Cabeleireiros" width="291" height="221"></a>
+    <nav aria-label="Secções">
+      <a class="l" href="#servicos">Serviços</a>
+      <a class="l" href="#trabalhos">Trabalhos</a>
+      <a class="l" href="#espaco">Espaço</a>
+      <a class="l" href="#historia">História</a>
+      <a class="pill" id="pill" href="#contactos"><span class="dot" aria-hidden="true"></span><span class="t1" id="pill-1">Horário</span><span class="t2" id="pill-2"></span></a>
+      <a class="btn red" href="#marcar">Marcar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <p class="label">Louriçal · Desde 1977</p>
+        <h1>O primeiro cabeleireiro do Louriçal.</h1>
+        <p class="lede">Cortes, cor, penteados e barbearia, feitos pela Mariazita e pelo filho João Vítor. Peça a sua marcação em segundos.</p>
+        <div class="actions">
+          <a class="btn red" href="#marcar">Pedir marcação</a>
+          <a class="btn line" href="tel:+351236968224">Ligar 236 968 224</a>
+        </div>
+      </div>
+      <div class="slides" id="slides" aria-roledescription="apresentação de fotografias">
+        <img class="on" src="fotos/espaco-salao.jpg" alt="O salão por dentro" data-cap="O salão">
+        <img src="fotos/balayage-moreno.jpg" alt="Balayage em cabelo moreno" data-cap="Balayage">
+        <img src="fotos/penteado-noiva.jpg" alt="Penteado de noiva" data-cap="Noivas">
+        <img src="fotos/espaco-cadeiras.jpg" alt="Postos de corte" data-cap="Postos de corte">
+        <span class="cap" id="slide-cap">O salão</span>
+        <span class="bars" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:clamp(2.5rem,5vw,3.5rem)">
+      <div class="stats" aria-label="O salão em números">
+        <div><b data-count="1977" data-plain>1977</b><span>Ano de abertura</span></div>
+        <div><b class="years" data-since="1977">49</b><span>Anos de experiência</span></div>
+        <div><b>4,8 <span class="stars" style="font-size:.6em">★</span></b><span>Nota no Google</span></div>
+        <div><b data-count="110">110</b><span>Avaliações</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="wrap">
+      <div class="head rise"><div><p class="label">Serviços</p><h2>O que fazemos</h2></div><p class="aside">Escolha um serviço e preparamos o pedido de marcação por si.</p></div>
+      <ul class="services">
+        <li class="rise"><span class="n">01</span><h3>Cortes e barbearia</h3><p>Senhora e homem, e serviço de barbearia.</p><button data-svc="Corte">Marcar este →</button></li>
+        <li class="rise"><span class="n">02</span><h3>Coloração e madeixas</h3><p>Cor, madeixas, balayage e face frame.</p><button data-svc="Cor e madeixas">Marcar este →</button></li>
+        <li class="rise"><span class="n">03</span><h3>Penteados e noivas</h3><p>Apanhados, tranças e penteados de festa.</p><button data-svc="Penteado">Marcar este →</button></li>
+        <li class="rise"><span class="n">04</span><h3>Alisamentos e ondulações</h3><p>Liso fácil de tratar, ou movimento e volume.</p><button data-svc="Alisamento ou ondulação">Marcar este →</button></li>
+        <li class="rise"><span class="n">05</span><h3>Tratamentos capilares</h3><p>Alfaparf Milano, para força e brilho.</p><button data-svc="Tratamento">Marcar este →</button></li>
+        <li class="rise"><span class="n">06</span><h3>Estética e depilação</h3><p>Em parceria com a Activderm Estética.</p><button data-svc="Estética">Marcar este →</button></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="trabalhos">
+    <div class="wrap">
+      <div class="head rise">
+        <div><p class="label">Trabalhos</p><h2>Feitos no salão</h2></div>
+        <div class="chips" role="group" aria-label="Filtrar trabalhos">
+          <button class="chip" aria-pressed="true" data-f="all">Todos</button>
+          <button class="chip" aria-pressed="false" data-f="cor">Cor</button>
+          <button class="chip" aria-pressed="false" data-f="pent">Penteados</button>
+        </div>
+      </div>
+      <div class="rail" id="rail">
+        <figure data-c="cor"><button data-full="fotos/balayage-moreno.jpg" data-cap="Balayage em cabelo moreno"><img src="fotos/balayage-moreno.jpg" alt="Balayage em cabelo moreno" loading="lazy"></button><figcaption>Balayage moreno <span>Cor</span></figcaption></figure>
+        <figure data-c="pent"><button data-full="fotos/penteado-noiva.jpg" data-cap="Penteado de noiva"><img src="fotos/penteado-noiva.jpg" alt="Penteado de noiva" loading="lazy"></button><figcaption>Noiva <span>Penteados</span></figcaption></figure>
+        <figure data-c="cor"><button data-full="fotos/madeixas-loiras.jpg" data-cap="Madeixas loiras"><img src="fotos/madeixas-loiras.jpg" alt="Madeixas loiras" loading="lazy"></button><figcaption>Madeixas loiras <span>Cor</span></figcaption></figure>
+        <figure data-c="pent"><button data-full="fotos/apanhado.jpg" data-cap="Apanhado"><img src="fotos/apanhado.jpg" alt="Apanhado" loading="lazy"></button><figcaption>Apanhado <span>Penteados</span></figcaption></figure>
+        <figure data-c="cor"><button data-full="fotos/balayage-face-frame.jpg" data-cap="Balayage com face frame"><img src="fotos/balayage-face-frame.jpg" alt="Balayage com face frame" loading="lazy"></button><figcaption>Face frame <span>Cor</span></figcaption></figure>
+        <figure data-c="pent"><button data-full="fotos/trancas.jpg" data-cap="Penteado com tranças"><img src="fotos/trancas.jpg" alt="Penteado com tranças" loading="lazy"></button><figcaption>Tranças <span>Penteados</span></figcaption></figure>
+        <figure data-c="cor"><button data-full="fotos/madeixas.jpg" data-cap="Madeixas"><img src="fotos/madeixas.jpg" alt="Madeixas" loading="lazy"></button><figcaption>Madeixas <span>Cor</span></figcaption></figure>
+        <figure data-c="pent"><button data-full="fotos/penteados-festa.jpg" data-cap="Casamentos e festas"><img src="fotos/penteados-festa.jpg" alt="Penteado para casamento" loading="lazy"></button><figcaption>Festas <span>Penteados</span></figcaption></figure>
+      </div>
+      <div class="rail-foot">
+        <p>Arraste para ver mais, ou toque para ampliar. Novos trabalhos no <a href="https://www.instagram.com/mariazita_cabeleireiros/" target="_blank" rel="noopener">Instagram</a>.</p>
+        <div class="arrows"><button type="button" id="prev" aria-label="Fotos anteriores">←</button><button type="button" id="next" aria-label="Fotos seguintes">→</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="space" id="espaco">
+    <div class="wrap">
+      <div class="head rise">
+        <div><p class="label">O espaço</p><h2>Um salão amplo e luminoso</h2></div>
+        <div class="chips" role="group" aria-label="Escolher zona do salão">
+          <button class="chip" aria-pressed="true" data-v="0">O salão</button>
+          <button class="chip" aria-pressed="false" data-v="1">Postos de corte</button>
+          <button class="chip" aria-pressed="false" data-v="2">Lavagem e receção</button>
+        </div>
+      </div>
+      <div class="viewer rise" id="viewer">
+        <img class="on" src="fotos/espaco-salao.jpg" alt="O salão por dentro, com grandes janelas" loading="lazy">
+        <img src="fotos/espaco-cadeiras.jpg" alt="Postos de corte com cadeiras vermelhas e brancas" loading="lazy">
+        <img src="fotos/espaco-lavagem.jpg" alt="Zona de lavagem e receção" loading="lazy">
+        <p class="note" aria-live="polite"><b id="v-t">O salão</b><span id="v-p">Grandes janelas, muita luz natural e sala de espera com sofás.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="wrap">
+      <div class="head rise"><div><p class="label">História</p><h2>Quase meio século a acompanhar a vida</h2></div></div>
+      <ol class="timeline">
+        <li class="rise"><span class="y">1977</span><p>A Mariazita abre o primeiro salão de cabeleireiro do Louriçal.</p></li>
+        <li class="rise"><span class="y">4 casas</span><p>Da Rua Capitão Cadete à Urbanização Lourisol, sempre renovado.</p></li>
+        <li class="rise"><span class="y">2006</span><p>O filho, João Vítor, junta-se à mãe. Começa a segunda geração.</p></li>
+        <li class="rise"><span class="y">Hoje</span><p>Mãe e filho lado a lado, com as técnicas de agora.</p></li>
+      </ol>
+      <p class="motto rise">“Acompanhar a vida, <span>nunca ficar parado.</span>”</p>
+    </div>
+  </section>
+
+  <section class="reviews" id="avaliacoes">
+    <div class="wrap grid">
+      <div class="rise">
+        <p class="label">Avaliações</p>
+        <a class="score" href="https://www.google.com/maps/place/Mariazita+Cabeleireiros/@40.0063371,-8.735337,17z" target="_blank" rel="noopener" style="text-decoration:none">
+          <b>4,8</b><span class="stars" aria-hidden="true">★★★★★</span><small>110 avaliações no Google ↗</small>
+        </a>
+      </div>
+      <div>
+        <div class="quote-wrap" id="quotes" aria-live="polite">
+          <blockquote class="quote on"><p>“Proprietários são de uma simpatia fantástica. Sempre grande profissionalismo! Impossível sair de lá insatisfeito.”</p><footer><b>Sandrine Cabecinhas</b>Google</footer></blockquote>
+          <blockquote class="quote"><p>“Excelente atendimento e serviço top! O João Vítor é um ótimo profissional!”</p><footer><b>Mónica Oliveira</b>Google</footer></blockquote>
+          <blockquote class="quote"><p>“Como uma família francesa de quatro pessoas em férias, fomos recebidos com muita gentileza e carinho. Recomendamos muito!”</p><footer><b>Aurore Fouquet</b>Google, traduzido do francês</footer></blockquote>
+          <blockquote class="quote"><p>“A D. Mariazita é um doce de pessoa!!”</p><footer><b>Hugo Daniel</b>Google</footer></blockquote>
+        </div>
+        <div class="qnav" id="qnav" role="group" aria-label="Escolher avaliação">
+          <button aria-current="true" aria-label="Avaliação 1"></button><button aria-label="Avaliação 2"></button><button aria-label="Avaliação 3"></button><button aria-label="Avaliação 4"></button>
+        </div>
+        <p class="source">Avaliações públicas do Google Places.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="marcar">
+    <div class="wrap">
+      <div class="head rise"><div><p class="label">Marcação</p><h2>Peça a sua marcação em 3 toques</h2></div><p class="aside">Escolha o que quer e quando prefere. Preparamos a mensagem, é só enviar.</p></div>
+      <div class="grid">
+        <div>
+          <div class="step">
+            <h3><i>1</i>O que quer fazer?</h3>
+            <div class="chips" id="b-svc" role="group" aria-label="Serviços">
+              <button class="chip" aria-pressed="false">Corte</button>
+              <button class="chip" aria-pressed="false">Barbearia</button>
+              <button class="chip" aria-pressed="false">Cor e madeixas</button>
+              <button class="chip" aria-pressed="false">Penteado</button>
+              <button class="chip" aria-pressed="false">Alisamento ou ondulação</button>
+              <button class="chip" aria-pressed="false">Tratamento</button>
+              <button class="chip" aria-pressed="false">Estética</button>
+            </div>
+          </div>
+          <div class="step">
+            <h3><i>2</i>Que dia prefere?</h3>
+            <div class="chips" id="b-day" role="group" aria-label="Dia"></div>
+          </div>
+          <div class="step">
+            <h3><i>3</i>Manhã ou tarde?</h3>
+            <div class="chips" id="b-time" role="group" aria-label="Período">
+              <button class="chip" aria-pressed="false" data-p="manhã">Manhã · 9h–13h</button>
+              <button class="chip" aria-pressed="false" data-p="tarde">Tarde · 14h30–19h</button>
+            </div>
+          </div>
+          <div class="step">
+            <h3><label for="b-name" style="display:flex;align-items:center;gap:.6rem"><i style="font-style:normal;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--fg);color:#fff;font-size:.8rem">+</i>O seu nome <span style="color:var(--dim);font-weight:500">(opcional)</span></label></h3>
+            <input type="text" id="b-name" autocomplete="given-name" placeholder="Ex.: Ana">
+          </div>
+        </div>
+        <aside class="summary" aria-live="polite">
+          <p class="label" style="margin:0">A sua mensagem</p>
+          <p class="msg empty" id="b-msg">Escolha pelo menos um serviço para começar.</p>
+          <div class="actions">
+            <a class="btn red" id="b-sms" href="#" aria-disabled="true">Enviar SMS</a>
+            <a class="btn line" href="tel:+351236968224">Ligar</a>
+          </div>
+          <small>A mensagem vai para o telemóvel do salão, 916 589 104. A marcação fica confirmada quando o salão responder.</small>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="contactos" class="contact">
+    <div class="wrap cols">
+      <div class="rise">
+        <p class="label">Contactos</p>
+        <a class="phone" href="tel:+351236968224">236 968 224</a>
+        <p style="color:var(--muted)">Telemóvel <a href="tel:+351916589104">916 589 104</a></p>
+        <address><strong>Urbanização Lourisol, Lote 16, Loja 1</strong><br>3105-165 Louriçal</address>
+        <div class="actions">
+          <a class="btn red" href="tel:+351236968224">Ligar</a>
+          <a class="btn line" href="https://www.google.com/maps/place/Mariazita+Cabeleireiros/@40.0063371,-8.735337,17z" target="_blank" rel="noopener">Como chegar ↗</a>
+        </div>
+      </div>
+      <div class="rise">
+        <p class="label">Horário · <span id="h-state" style="text-transform:none;letter-spacing:0"></span></p>
+        <table><tbody id="hours"></tbody></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <img class="foot-logo" src="logo-mariazita.png" alt="Mariazita Cabeleireiros" width="293" height="263" loading="lazy">
+    <span>© <span class="this-year">2026</span> Mariazita Cabeleireiros · Louriçal · desde 1977</span>
+    <span><a href="https://www.instagram.com/mariazita_cabeleireiros/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/mariazitacabeleireiroestetica" target="_blank" rel="noopener">Facebook</a></span>
+  </div>
+</footer>
+
+<div class="dock" aria-label="Ações rápidas">
+  <a class="btn red" href="tel:+351236968224">Ligar</a>
+  <a class="btn line" id="dock-2" href="#marcar">Marcar</a>
+</div>
+
+<dialog class="lightbox" id="lightbox" aria-label="Fotografia ampliada">
+  <button class="close" id="lb-close" aria-label="Fechar">×</button>
+  <img id="lb-img" src="" alt="">
+  <p id="lb-cap"></p>
+</dialog>
+
+<script>
+(function(){
+  var root=document.documentElement, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var y=new Date().getFullYear();
+  document.querySelectorAll('.years[data-since]').forEach(function(el){el.textContent=String(y-parseInt(el.getAttribute('data-since'),10))});
+  document.querySelectorAll('.this-year').forEach(function(el){el.textContent=String(y)});
+
+  // ---------- Horário em tempo real (hora de Lisboa) ----------
+  var DAYS=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+  var H={0:[[540,780]],1:[],2:[[540,780],[870,1140]],3:[[540,780],[870,1140]],4:[[540,780],[870,1140]],5:[[540,780],[870,1140]],6:[[540,780],[870,1140]]};
+  function hm(m){var h=Math.floor(m/60),mm=m%60;return h+(mm?':'+String(mm).padStart(2,'0'):'h')}
+  function hhmm(m){return Math.floor(m/60)+':'+String(m%60).padStart(2,'0')}
+  function now(){
+    try{var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Lisbon',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date()),o={};
+      p.forEach(function(x){o[x.type]=x.value});return {d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday),m:(parseInt(o.hour,10)%24)*60+parseInt(o.minute,10)};
+    }catch(e){var n=new Date();return {d:n.getDay(),m:n.getHours()*60+n.getMinutes()}}
+  }
+  function status(){
+    var t=now(), cur=H[t.d].filter(function(r){return t.m>=r[0]&&t.m<r[1]})[0], a, b, pill=document.getElementById('pill');
+    if(cur){a='Aberto agora';b=' · até às '+hm(cur[1]);pill.classList.add('open')}
+    else{pill.classList.remove('open');var later=H[t.d].filter(function(r){return r[0]>t.m})[0];
+      if(later){a='Fechado';b=' · abre às '+hm(later[0])}
+      else{for(var k=1;k<=7;k++){var d=(t.d+k)%7;if(H[d].length){a='Fechado';b=' · abre '+(k===1?'amanhã':DAYS[d].toLowerCase())+' às '+hm(H[d][0][0]);break}}}}
+    document.getElementById('pill-1').textContent=a;document.getElementById('pill-2').textContent=b;
+    document.getElementById('h-state').textContent=a+b;
+    var tb=document.getElementById('hours');tb.innerHTML='';
+    [1,2,3,4,5,6,0].forEach(function(d){var tr=document.createElement('tr');if(d===t.d)tr.className='today';
+      tr.innerHTML='<td>'+DAYS[d]+'</td><td>'+(H[d].length?H[d].map(function(r){return hhmm(r[0])+'–'+hhmm(r[1])}).join(' · '):'Fechado')+'</td>';tb.appendChild(tr)});
+    return t;
+  }
+  var T=status();setInterval(status,60000);
+
+  // ---------- Fotografias da abertura ----------
+  var sl=[].slice.call(document.querySelectorAll('#slides img')), bars=document.querySelectorAll('#slides .bars i'), si=0, cap=document.getElementById('slide-cap');
+  function show(i){sl[si].classList.remove('on');bars[si].classList.remove('on');si=i;sl[si].classList.add('on');void bars[si].offsetWidth;bars[si].classList.add('on');cap.textContent=sl[si].getAttribute('data-cap')}
+  if(!reduce)setInterval(function(){if(!document.hidden)show((si+1)%sl.length)},5000);
+
+  // ---------- Números a contar ----------
+  if('IntersectionObserver' in window && !reduce){
+    var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cio.unobserve(e.target);var el=e.target,to=parseInt(el.textContent,10),from=el.hasAttribute('data-plain')?1900:0,t0=performance.now();
+      (function f(t){var k=Math.min(1,(t-t0)/1200);k=1-Math.pow(1-k,3);el.textContent=String(Math.round(from+(to-from)*k));if(k<1)requestAnimationFrame(f)})(t0)})},{threshold:.6});
+    document.querySelectorAll('.stats b[data-count], .stats b.years').forEach(function(b){cio.observe(b)});
+  }
+
+  // ---------- Trabalhos: filtros, arrastar, setas, ampliar ----------
+  var rail=document.getElementById('rail');
+  document.querySelectorAll('#trabalhos .chip').forEach(function(c){c.addEventListener('click',function(){
+    var f=c.getAttribute('data-f');document.querySelectorAll('#trabalhos .chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+    rail.querySelectorAll('figure').forEach(function(fg){fg.hidden=!(f==='all'||fg.getAttribute('data-c')===f)});rail.scrollTo({left:0,behavior:'smooth'})})});
+  function stepW(){var f=rail.querySelector('figure:not([hidden])');return f?f.getBoundingClientRect().width+13:300}
+  document.getElementById('prev').addEventListener('click',function(){rail.scrollBy({left:-stepW(),behavior:'smooth'})});
+  document.getElementById('next').addEventListener('click',function(){rail.scrollBy({left:stepW(),behavior:'smooth'})});
+  var down=false,moved=false,x0=0,s0=0;
+  rail.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;down=true;moved=false;x0=e.clientX;s0=rail.scrollLeft});
+  addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-x0;if(!moved&&Math.abs(dx)>5){moved=true;rail.classList.add('dragging')}if(moved){rail.scrollLeft=s0-dx;e.preventDefault()}});
+  addEventListener('pointerup',function(){if(!down)return;down=false;if(moved){var l=rail.scrollLeft;rail.classList.remove('dragging');rail.scrollLeft=l;var w=stepW();rail.scrollTo({left:Math.round(l/w)*w,behavior:'smooth'})}});
+  rail.addEventListener('click',function(e){if(moved){e.stopPropagation();e.preventDefault();moved=false}},true);
+  rail.addEventListener('dragstart',function(e){e.preventDefault()});
+  var lb=document.getElementById('lightbox'),li=document.getElementById('lb-img'),lc=document.getElementById('lb-cap');
+  rail.querySelectorAll('button[data-full]').forEach(function(b){b.addEventListener('click',function(){li.src=b.getAttribute('data-full');li.alt=b.getAttribute('data-cap');lc.textContent=b.getAttribute('data-cap');if(lb.showModal)lb.showModal()})});
+  document.getElementById('lb-close').addEventListener('click',function(){lb.close()});
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+
+  // ---------- O espaço ----------
+  var V=[{t:'O salão',p:'Grandes janelas, muita luz natural e sala de espera com sofás.'},{t:'Postos de corte',p:'Espelhos amplos e as cadeiras vermelhas e brancas do salão.'},{t:'Lavagem e receção',p:'Cadeiras de lavagem, o balcão e os produtos que usamos.'}];
+  var vimgs=document.querySelectorAll('#viewer img');
+  document.querySelectorAll('#espaco .chip').forEach(function(c){c.addEventListener('click',function(){var i=+c.getAttribute('data-v');
+    document.querySelectorAll('#espaco .chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+    vimgs.forEach(function(im,k){im.classList.toggle('on',k===i)});document.getElementById('v-t').textContent=V[i].t;document.getElementById('v-p').textContent=V[i].p})});
+
+  // ---------- Avaliações ----------
+  var qs=document.querySelectorAll('.quote'),qn=document.querySelectorAll('#qnav button'),qi=0,qt;
+  function q(i){qi=i;qs.forEach(function(x,k){x.classList.toggle('on',k===i)});qn.forEach(function(x,k){x.setAttribute('aria-current',k===i)})}
+  function auto(){clearInterval(qt);if(!reduce)qt=setInterval(function(){q((qi+1)%qs.length)},6500)}
+  qn.forEach(function(b,k){b.addEventListener('click',function(){q(k);auto()})});auto();
+
+  // ---------- Assistente de marcação ----------
+  var svcBox=document.getElementById('b-svc'), dayBox=document.getElementById('b-day'), timeBox=document.getElementById('b-time'), nameIn=document.getElementById('b-name');
+  var dock2=document.getElementById('dock-2'), msg=document.getElementById('b-msg'), sms=document.getElementById('b-sms'), state={svc:[],day:null,dayIdx:null,p:null};
+  // próximos 7 dias de abertura
+  var t0=now(), labels=[];
+  for(var k=0;k<8&&labels.length<6;k++){var d=(t0.d+k)%7;if(!H[d].length)continue;if(k===0&&t0.m>=H[d][H[d].length-1][1]-30)continue;
+    labels.push({d:d,txt:k===0?'Hoje':k===1?'Amanhã':DAYS[d],msg:k===0?'hoje':k===1?'amanhã':DAYS[d].toLowerCase()})}
+  labels.forEach(function(l){var b=document.createElement('button');b.className='chip';b.setAttribute('aria-pressed','false');b.textContent=l.txt;b.dataset.msg=l.msg;b.dataset.d=l.d;dayBox.appendChild(b)});
+  function press(box,btn,single){if(single)box.querySelectorAll('.chip').forEach(function(x){if(x!==btn)x.setAttribute('aria-pressed','false')});btn.setAttribute('aria-pressed',btn.getAttribute('aria-pressed')!=='true')}
+  svcBox.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;press(svcBox,b,false);update()});
+  dayBox.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;press(dayBox,b,true);update()});
+  timeBox.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b||b.disabled)return;press(timeBox,b,true);update()});
+  nameIn.addEventListener('input',update);
+  function list(a){return a.length<2?a.join(''):a.slice(0,-1).join(', ')+' e '+a[a.length-1]}
+  function update(){
+    var svc=[].map.call(svcBox.querySelectorAll('[aria-pressed="true"]'),function(b){return b.textContent.toLowerCase()});
+    var db=dayBox.querySelector('[aria-pressed="true"]');
+    var tarde=timeBox.querySelector('[data-p="tarde"]');
+    var sunday=db&&db.dataset.d==='0';tarde.disabled=!!sunday;if(sunday)tarde.setAttribute('aria-pressed','false');
+    var tb=timeBox.querySelector('[aria-pressed="true"]');
+    if(!svc.length){msg.textContent='Escolha pelo menos um serviço para começar.';msg.classList.add('empty');sms.setAttribute('aria-disabled','true');sms.href='#';dock2.textContent='Marcar';dock2.href='#marcar';dock2.className='btn line';return}
+    var n=nameIn.value.trim();
+    var t='Olá! '+(n?'O meu nome é '+n+'. ':'')+'Gostaria de marcar '+list(svc)+(db?' para '+db.dataset.msg:'')+(tb?' de '+tb.dataset.p:'')+'. Fico a aguardar confirmação.';
+    msg.textContent=t;msg.classList.remove('empty');sms.removeAttribute('aria-disabled');
+    sms.href='sms:+351916589104?&body='+encodeURIComponent(t);dock2.textContent='Enviar SMS';dock2.href=sms.href;dock2.className='btn red';
+  }
+  sms.addEventListener('click',function(e){if(sms.getAttribute('aria-disabled')==='true')e.preventDefault()});
+  // "Marcar este" nos serviços
+  document.querySelectorAll('.services button[data-svc]').forEach(function(b){b.addEventListener('click',function(){
+    var name=b.getAttribute('data-svc');svcBox.querySelectorAll('.chip').forEach(function(c){if(c.textContent===name)c.setAttribute('aria-pressed','true')});update();
+    document.getElementById('marcar').scrollIntoView({behavior:reduce?'auto':'smooth'});setTimeout(function(){var f=dayBox.querySelector('.chip');if(f)f.focus({preventScroll:true})},reduce?0:600)})});
+
+  // ---------- Entrada suave ----------
+  if('IntersectionObserver' in window && !reduce){root.classList.add('js');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.rise').forEach(function(el){io.observe(el)})}
+})();
+</script>
+<a href="../" class="vtab" aria-label="Voltar a todas as versões">← Versões</a>
+<style>.vtab{position:fixed;left:0;top:50%;z-index:99999;transform:translateY(-50%);writing-mode:vertical-rl;rotate:180deg;padding:14px 8px;border-radius:0 10px 10px 0;background:#B3232D;color:#fff!important;font:600 12px/1 Manrope,Arial,sans-serif;letter-spacing:.06em;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.35);opacity:.9}.vtab:hover{opacity:1}.vtab:focus-visible{outline:2px solid #BFD73B;outline-offset:2px}</style>
