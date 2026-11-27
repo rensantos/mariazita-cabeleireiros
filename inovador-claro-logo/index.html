@@ -76,6 +76,14 @@ section{position:relative;padding-block:clamp(5rem,12vw,9rem)}
 .hero .hint span{display:inline-block;width:18px;height:28px;border:1.5px solid var(--dim);border-radius:10px;position:relative}
 .hero .hint span::after{content:"";position:absolute;left:50%;top:5px;width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:var(--fg);animation:wheel 1.6s infinite}
 @keyframes wheel{0%{transform:translateY(0);opacity:1}70%{transform:translateY(8px);opacity:0}100%{opacity:0}}
+/* Foto do salão na abertura: desvanece para o creme; a luz do rato dá-lhe cor */
+.hero .foto,.hero .foto-luz{position:absolute;inset:0 0 0 auto;width:60%;z-index:-1;pointer-events:none;background:url(fotos/hero-salao.jpg) no-repeat 30% center/cover}
+.hero .foto{filter:saturate(.55) sepia(.18);opacity:.55;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 55%),linear-gradient(180deg,#000 72%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 55%),linear-gradient(180deg,#000 72%,transparent);mask-composite:intersect}
+.hero .foto-luz{-webkit-mask-image:radial-gradient(circle 260px at var(--fx,60%) var(--fy,45%),#000 0%,rgba(0,0,0,.6) 45%,transparent 100%),linear-gradient(90deg,transparent 0,#000 50%);-webkit-mask-composite:source-in;
+  mask-image:radial-gradient(circle 260px at var(--fx,60%) var(--fy,45%),#000 0%,rgba(0,0,0,.6) 45%,transparent 100%),linear-gradient(90deg,transparent 0,#000 50%);mask-composite:intersect}
+.hero-foto{display:none}
+@media (max-width:899px){.hero .foto,.hero .foto-luz{display:none}.hero-foto{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;margin-top:1.6rem}}
+@media (min-width:900px){.hero{min-height:min(78svh,640px);align-content:center}}
 /* O ano gigante, com a fotografia do salão dentro das letras */
 .year-photo{font-family:var(--serif);font-size:min(13vw,15svh);line-height:.8;letter-spacing:-.03em;margin-top:clamp(1.5rem,3vw,2.5rem);user-select:none;white-space:nowrap;
   color:transparent;-webkit-text-stroke:1.5px rgba(43,26,12,.35)}
@@ -287,6 +295,8 @@ footer.site a:hover{color:var(--fg)}
 <main id="inicio">
   <section class="hero" id="hero">
     <div class="lona" aria-hidden="true"></div>
+    <div class="foto" aria-hidden="true"></div>
+    <div class="foto-luz" aria-hidden="true"></div>
     <div class="glow" aria-hidden="true"></div>
     <div class="wrap inner">
       <p class="kicker">Louriçal · desde 1977</p>
@@ -295,8 +305,8 @@ footer.site a:hover{color:var(--fg)}
           <h1>O primeiro cabeleireiro do Louriçal, <em>sempre a mudar com a vida.</em></h1>
           <p class="lede">Corte, cor, noivas e barbearia, pelas mãos da Mariazita e do filho João Vítor.</p>
         </div>
-        <p class="hint"><span aria-hidden="true"></span>Desça para conhecer</p>
       </div>
+      <img class="hero-foto" src="fotos/hero-salao.jpg" alt="O salão por dentro" width="1150" height="968">
     </div>
   </section>
 
@@ -524,7 +534,7 @@ footer.site a:hover{color:var(--fg)}
 
   // ---------- Luz na abertura ----------
   var hero=document.getElementById('hero');
-  hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px')});
+  hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();var fl=hero.querySelector('.foto-luz');if(fl){var q=fl.getBoundingClientRect();fl.style.setProperty('--fx',(e.clientX-q.left)+'px');fl.style.setProperty('--fy',(e.clientY-q.top)+'px')}hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px')});
   if(!reduce && matchMedia('(hover:none)').matches){ // no telemóvel a luz passeia sozinha
     var t0=performance.now();(function drift(t){var a=(t-t0)/4000;hero.style.setProperty('--mx',(50+32*Math.cos(a))+'%');hero.style.setProperty('--my',(38+18*Math.sin(a*1.3))+'%');requestAnimationFrame(drift)})(t0);
   }
